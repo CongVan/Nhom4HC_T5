@@ -20,12 +20,6 @@ namespace User.Register.Areas.User
                 new { Controller="User",action = "Register", id = UrlParameter.Optional }
                 , namespaces: new[] { "User.Register.Areas.User.Controllers" }
             );
-            context.MapRoute(
-                "User_GetCaptChaImage",
-                "User/Register/{action}/{id}",
-                new { Controller = "User", action = "GetCaptChaImage", id = UrlParameter.Optional }
-                , namespaces: new[] { "User.Register.Areas.User.Controllers" }
-            );
         }
     }
 }

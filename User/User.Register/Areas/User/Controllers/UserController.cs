@@ -71,7 +71,6 @@ namespace User.Register.Areas.User.Controllers
             return new FileStreamResult(stream, "image/png");
         }
 
-
         public string CreateMD5(string input)
         {
             // Use input string to calculate MD5 hash

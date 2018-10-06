@@ -50,5 +50,6 @@ namespace User.Register.Areas.User.Services
                 }
             }
         }
+
     }
 }

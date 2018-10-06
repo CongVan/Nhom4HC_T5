@@ -58,7 +58,7 @@ $(document).ready(function () {
 
 $('#btn-register').on('click', function () {
     var idForm = '#loginform';
-    if ($(idForm).valid() && !CheckExistsUserName()) {
+    if ($(idForm).valid() && !CheckExistsUserName() && CheckCaptchaValidate()) {
         var objmodel = {};
         objmodel = GetValueToObject();
         var formdata = new FormData();
@@ -144,4 +144,41 @@ var ResetForm = function () {
     $("#nhapLaiMatKhau").val('');
     $('#ngaySinh').datepicker('setDate', new Date());
     $('#email').val('');
+    $('#CaptchaText').val('');
+}
+
+var CheckCaptchaValidate = function () {
+    var $element = $('#CaptchaText');
+    var captchaCode = $element.val();
+    var value = $element.val();
+    var check = false;
+    $.ajax({
+        contentType: 'application/json; charset=utf-8',
+        url: '/User/Register/CheckCaptchaValidate',
+        type: 'POST',
+        data: JSON.stringify({ captchaCode: captchaCode }),
+        dataType: 'json',
+        async:false,
+        success: function (response) {
+            if ($('#captcha-error')) {
+                $('#captcha-error').remove();
+            }
+            if (response == true) {
+                check = true;
+                //return check;
+            }
+            else {
+                check = false;
+                var htmlError = '<label id="captcha-error" class="error" for="CaptchaText">Sai mã captcha</label>';
+                var $parent = $element.parent();
+                $parent.append(htmlError);
+                //return check;
+            }
+        },
+        error: function (xhr, textStatus, errorThrown) {
+                
+            console.log('JAVASCRIPT ERROR !!!');
+        }
+    });
+    return check;
 }
