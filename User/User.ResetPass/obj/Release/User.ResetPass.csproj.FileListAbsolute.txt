@@ -1,0 +1,6 @@
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\User\User.ResetPass\bin\User.ResetPass.dll
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\User\User.ResetPass\bin\User.ResetPass.pdb
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\User\User.ResetPass\obj\Release\User.ResetPass.csprojResolveAssemblyReference.cache
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\User\User.ResetPass\obj\Release\User.ResetPass.csproj.CoreCompileInputs.cache
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\User\User.ResetPass\obj\Release\User.ResetPass.dll
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\User\User.ResetPass\obj\Release\User.ResetPass.pdb
