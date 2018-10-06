@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -113,12 +115,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\User\Controllers\ResetPassController.cs" />
+    <Compile Include="Areas\User\Models\ResData.cs" />
+    <Compile Include="Areas\User\Models\UserModel.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Areas\User\Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Areas\User\Views\ResetPass\ResetPass.cshtml" />
   </ItemGroup>
