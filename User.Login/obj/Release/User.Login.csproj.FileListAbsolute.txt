@@ -1,4 +1,0 @@
-E:\HocTap\HC(2018-2019)\HK_III\QL_QTPM_T5\Issue_Management_Main\User.Login\bin\User.Login.dll
-E:\HocTap\HC(2018-2019)\HK_III\QL_QTPM_T5\Issue_Management_Main\User.Login\bin\User.Login.pdb
-E:\HocTap\HC(2018-2019)\HK_III\QL_QTPM_T5\Issue_Management_Main\User.Login\obj\Release\User.Login.dll
-E:\HocTap\HC(2018-2019)\HK_III\QL_QTPM_T5\Issue_Management_Main\User.Login\obj\Release\User.Login.pdb
