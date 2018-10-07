@@ -19,7 +19,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/15/2014 02:46:54</publishTime>
     </File>
     <File Include="bin/User.Register.dll">
-      <publishTime>10/06/2018 13:07:05</publishTime>
+      <publishTime>10/07/2018 20:21:45</publishTime>
     </File>
     <File Include="Scripts/User/Register/user.register.js">
       <publishTime>10/06/2018 13:06:14</publishTime>
