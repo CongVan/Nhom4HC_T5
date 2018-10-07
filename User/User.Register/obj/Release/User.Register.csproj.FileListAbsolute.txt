@@ -2,3 +2,8 @@ E:\HocTap\HC(2018-2019)\HK_III\QL_QTPM_T5\Issue_Management_Main\User\User.Regist
 E:\HocTap\HC(2018-2019)\HK_III\QL_QTPM_T5\Issue_Management_Main\User\User.Register\bin\User.Register.pdb
 E:\HocTap\HC(2018-2019)\HK_III\QL_QTPM_T5\Issue_Management_Main\User\User.Register\obj\Release\User.Register.dll
 E:\HocTap\HC(2018-2019)\HK_III\QL_QTPM_T5\Issue_Management_Main\User\User.Register\obj\Release\User.Register.pdb
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\User\User.Register\bin\User.Register.dll
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\User\User.Register\bin\User.Register.pdb
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\User\User.Register\obj\Release\User.Register.csprojResolveAssemblyReference.cache
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\User\User.Register\obj\Release\User.Register.dll
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\User\User.Register\obj\Release\User.Register.pdb

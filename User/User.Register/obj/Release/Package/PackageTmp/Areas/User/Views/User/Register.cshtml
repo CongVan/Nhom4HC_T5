@@ -1,8 +1,97 @@
 ﻿@inherits System.Web.Mvc.WebViewPage
 @{
-    Layout = "~/Views/Layout.cshtml";
+    Layout = null;//"~/Views/Layout.cshtml";
     //ViewsBag.Title = "Trang đăng ký";
 }
-<h1>
-    Trang đăng ký tài khoản
-</h1>
+<link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="~/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+<link href="~/public/css/style.css" rel="stylesheet">
+<!-- You can change the theme colors from here -->
+<link href="~/public/css/colors/blue.css" id="theme" rel="stylesheet">
+<link href="~/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+<style>
+    .error{
+        color:red;
+    }
+</style>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-block">
+                    <form class="form-horizontal form-material" id="loginform">
+                        <h3 class="box-title m-b-20">Đăng ký tài khoản</h3>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" id="hoTen" name="HoTen" placeholder="Họ tên" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <input class="form-control dateOfbirth" type="text" id="ngaySinh" name="NgaySinh" placeholder="Ngày sinh">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <label>Giới tính &nbsp;</label>
+                                <div class="form-check-inline">
+                                    <label><input type="radio" name="GioiTinh" value="1" checked>Nam</label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label><input type="radio" name="GioiTinh" value="0">Nữ</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" id="tenDangNhap" name="TenDangNhap" placeholder="Tên đăng nhập">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="password" id="matKhau" name="MatKhau" placeholder="Mật khẩu">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="password" id="nhapLaiMatKhau" name="NhapLaiMatKhau"  placeholder="Nhập lại mật khẩu">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="email" id="email" name="Email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <img src="/User/Register/GetCaptChaImage" />
+                                <input class="form-control" type="text" id="CaptchaText" name="CaptchaText" placeholder="Nhập captcha">
+                            </div>
+                        </div>
+                        <div class="form-group text-center m-t-20">
+                            <div class="row justify-content-center">
+                                <div class="col-xs-6">
+                                    <input type="button" id="btn-register" class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" value="Đăng ký">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Default JavaScript -->
+<script src="~/assets/plugins/jquery/jquery.min.js"></script>
+<script src="~/assets/plugins/bootstrap/js/tether.min.js"></script>
+<script src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="~/assets/plugins/wizard/jquery.validate.min.js"></script>
+<script src="~/assets/plugins/moment/min/moment.min.js"></script>
+<script src="~/assets/plugins/sweetalert/sweetalert.min.js"></script>
+<!-- Default JavaScript -->
+<!-- Custom JavaScript -->
+<script src="~/Scripts/User/Register/user.register.js"></script>
+<!-- Custom JavaScript -->

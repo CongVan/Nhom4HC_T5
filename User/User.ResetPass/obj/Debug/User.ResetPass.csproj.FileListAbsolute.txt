@@ -1,0 +1,5 @@
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\User\User.ResetPass\bin\User.ResetPass.dll
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\User\User.ResetPass\bin\User.ResetPass.pdb
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\User\User.ResetPass\obj\Debug\User.ResetPass.csproj.CoreCompileInputs.cache
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\User\User.ResetPass\obj\Debug\User.ResetPass.dll
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\User\User.ResetPass\obj\Debug\User.ResetPass.pdb

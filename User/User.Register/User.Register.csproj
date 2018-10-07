@@ -40,6 +40,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SRVTextToImage">
+      <HintPath>..\..\packages\SRVTextToImage\SRVTextToImage.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -113,14 +117,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\User\Controllers\UserController.cs" />
+    <Compile Include="Areas\User\Models\UserModel.cs" />
+    <Compile Include="Areas\User\Services\UserService.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Areas\User\Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Areas\User\Views\User\Register.cshtml" />
+    <Content Include="Scripts\User\Register\user.register.js" />
     <None Include="Properties\PublishProfiles\User.Register.pubxml" />
   </ItemGroup>
   <PropertyGroup>

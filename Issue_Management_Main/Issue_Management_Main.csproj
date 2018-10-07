@@ -678,7 +678,9 @@
     <Content Include="public\scss\icons\themify-icons\themify-icons.css" />
     <Content Include="public\scss\icons\weather-icons\css\weather-icons.min.css" />
     <Content Include="public\scss\icons\weather-icons\fonts\weathericons-regular-webfont.svg" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
