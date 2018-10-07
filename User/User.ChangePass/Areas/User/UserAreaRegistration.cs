@@ -12,6 +12,7 @@ namespace User.ChangePass.Areas.User
             }
         }
 
+
         public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(

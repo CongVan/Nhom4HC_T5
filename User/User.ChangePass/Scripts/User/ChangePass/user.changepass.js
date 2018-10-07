@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+
     $('#changepassform').validate({
         rules: {
             TenDangNhap: {
