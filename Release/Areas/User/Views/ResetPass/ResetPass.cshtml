@@ -1,0 +1,55 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@{
+    Layout = "~/Views/Layout.cshtml";
+    //ViewsBag.Title = "Quên mật khẩu";
+}
+<link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="~/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="~/public/css/style.css" rel="stylesheet">
+<!-- You can change the theme colors from here -->
+<link href="~/public/css/colors/blue.css" id="theme" rel="stylesheet">
+<link href="~/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+<style>
+    .error {
+        color: red;
+    }
+</style>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-block">
+                    <form class="form-horizontal form-material" id="loginform">
+                        <h3 class="box-title m-b-20">Quên mật khẩu</h3>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" id="txtEmail" name="txtEmail" placeholder="Địa chỉ email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group text-center m-t-20">
+                            <div class="row justify-content-center">
+                                <div class="col-xs-6">
+                                    <input type="button" id="btn-resetPass" class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" value="Lấy lại mật khẩu">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Default JavaScript -->
+<script src="~/assets/plugins/jquery/jquery.min.js"></script>
+<script src="~/assets/plugins/bootstrap/js/tether.min.js"></script>
+<script src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="~/assets/plugins/wizard/jquery.validate.min.js"></script>
+<script src="~/assets/plugins/moment/min/moment.min.js"></script>
+<script src="~/assets/plugins/sweetalert/sweetalert.min.js"></script>
+<!-- Default JavaScript -->
+<!-- Custom JavaScript -->
+<script src="~/Scripts/User/ResetPass/user.resetpass.js"></script>
+<!-- Custom JavaScript -->
