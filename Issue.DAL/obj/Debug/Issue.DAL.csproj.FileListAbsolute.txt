@@ -4,3 +4,12 @@ E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\Issue.DAL\obj\Debug\Issu
 E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\Issue.DAL\obj\Debug\Issue.DAL.csproj.CoreCompileInputs.cache
 E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\Issue.DAL\obj\Debug\Issue.DAL.dll
 E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\Issue.DAL\obj\Debug\Issue.DAL.pdb
+E:\Study\HC2017\QLDA\Nhom4HC_T5\Issue.DAL\bin\Debug\Issue.DAL.dll
+E:\Study\HC2017\QLDA\Nhom4HC_T5\Issue.DAL\bin\Debug\Issue.DAL.pdb
+E:\Study\HC2017\QLDA\Nhom4HC_T5\Issue.DAL\bin\Debug\Microsoft.Web.Mvc.FixedDisplayModes.dll
+E:\Study\HC2017\QLDA\Nhom4HC_T5\Issue.DAL\bin\Debug\Newtonsoft.Json.dll
+E:\Study\HC2017\QLDA\Nhom4HC_T5\Issue.DAL\bin\Debug\System.Web.Mvc.dll
+E:\Study\HC2017\QLDA\Nhom4HC_T5\Issue.DAL\bin\Debug\Newtonsoft.Json.xml
+E:\Study\HC2017\QLDA\Nhom4HC_T5\Issue.DAL\bin\Debug\System.Web.Mvc.xml
+E:\Study\HC2017\QLDA\Nhom4HC_T5\Issue.DAL\obj\Debug\Issue.DAL.dll
+E:\Study\HC2017\QLDA\Nhom4HC_T5\Issue.DAL\obj\Debug\Issue.DAL.pdb
