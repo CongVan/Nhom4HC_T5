@@ -26,3 +26,25 @@ E:\HocTap\HC(2018-2019)\HK_III\QL_QTPM_T5\Issue_Management_Main\Issue_Management
 E:\HocTap\HC(2018-2019)\HK_III\QL_QTPM_T5\Issue_Management_Main\Issue_Management_Main\obj\Debug\Issue_Management_Main.dll
 E:\HocTap\HC(2018-2019)\HK_III\QL_QTPM_T5\Issue_Management_Main\Issue_Management_Main\obj\Debug\Issue_Management_Main.pdb
 E:\HocTap\HC(2018-2019)\HK_III\QL_QTPM_T5\Issue_Management_Main\Issue_Management_Main\obj\Debug\Issue_Management_Main.csprojResolveAssemblyReference.cache
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\bin\Issue_Management_Main.dll.config
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\bin\Issue_Management_Main.dll
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\bin\Issue_Management_Main.pdb
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\bin\Microsoft.Web.Infrastructure.dll
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\bin\Newtonsoft.Json.dll
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\bin\System.Web.Helpers.dll
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\bin\System.Web.Mvc.dll
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\bin\System.Web.Razor.dll
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\bin\System.Web.WebPages.Deployment.dll
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\bin\System.Web.WebPages.dll
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\bin\System.Web.WebPages.Razor.dll
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\bin\Newtonsoft.Json.xml
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\bin\System.Web.Helpers.xml
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\bin\System.Web.Mvc.xml
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\bin\System.Web.Razor.xml
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\bin\System.Web.WebPages.xml
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\bin\System.Web.WebPages.Deployment.xml
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\bin\System.Web.WebPages.Razor.xml
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\obj\Debug\Issue_Management_Main.csprojResolveAssemblyReference.cache
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\obj\Debug\Issue_Management_Main.dll
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Issue_Management_Main\obj\Debug\Issue_Management_Main.pdb
