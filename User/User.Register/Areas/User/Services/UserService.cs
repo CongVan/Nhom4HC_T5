@@ -51,5 +51,21 @@ namespace User.Register.Areas.User.Services
             }
         }
 
+        public int KiemTraEmail(string email)
+        {
+            var strConn = ConfigurationManager.ConnectionStrings["SqlConnectionString"].ConnectionString;
+            using (var conn = new SqlConnection(strConn))
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_TaiKhoan_CheckEmail", conn))
+                {
+                    conn.Open();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@Email", SqlDbType.VarChar).Value = email;
+                    var result = cmd.ExecuteScalar();
+                    return (int)result;
+                }
+            }
+        }
+
     }
 }

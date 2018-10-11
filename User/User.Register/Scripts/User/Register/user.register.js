@@ -1,5 +1,6 @@
 ﻿var dateFormat = 'dd/mm/yyyy';
 var existsUser = false;
+var existsEmail = false;
 $(document).ready(function () {
     $('.dateOfbirth').datepicker({
         format: "dd/mm/yyyy",
@@ -58,7 +59,17 @@ $(document).ready(function () {
 
 $('#btn-register').on('click', function () {
     var idForm = '#loginform';
-    if ($(idForm).valid() && !CheckExistsUserName() && CheckCaptchaValidate()) {
+    var valid = true;
+    if(!$(idForm).valid()){
+        valid = false;
+    }
+    if(CheckExistsUserName()){
+        valid = false
+    }
+    if(CheckExistsEmail()){
+        valid = false;
+    }
+    if (valid) {
         var objmodel = {};
         objmodel = GetValueToObject();
         var formdata = new FormData();
@@ -73,6 +84,9 @@ $('#btn-register').on('click', function () {
                 if (parseInt(response) > 0) {
                     swal("Thông báo", "Tạo tài khoản thành công", "success");
                     ResetForm();
+                    setTimeout(function () {
+                        window.location.href = window.location.origin + "/User/Login";
+                    },800);
                 }
                 else {
                     swal("Thông báo", "Tạo tài khoản thất bại", "error");
@@ -124,6 +138,41 @@ var CheckExistsUserName = function () {
         });
     }
     return existsUser;
+}
+
+var CheckExistsEmail = function () {
+    var $element = $('#email');
+    var email = $element.val();
+    var $parent = $element.parent();
+    $.ajax({
+        contentType: 'application/json; charset=utf-8',
+        url: '/User/Register/CheckEmail',
+        type: 'POST',
+        data: JSON.stringify({ email: email }),
+        dataType: 'json',
+        success: function (response) {
+            if ($('#email-exists')) {
+                $('#email-exists').remove();
+            }
+            if (response == 1) {
+                var htmlError = '<label id="email-exists" class="error" for="email">email đã tồn tại</label>';
+                $element.addClass('error');
+                $parent.append(htmlError);
+                existsEmail = true;
+            }
+            else {
+                $element.removeClass('error');
+                existsEmail = false;
+            }
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            if ($('#email-exists')) {
+                $('#email-exists').remove();
+            }
+            console.log('JAVASCRIPT ERROR !!!');
+        }
+    });
+    return existsEmail;
 }
 
 var GetValueToObject = function () {
@@ -182,3 +231,7 @@ var CheckCaptchaValidate = function () {
     });
     return check;
 }
+
+$('#email').focusout(function () {
+    CheckExistsEmail();
+});

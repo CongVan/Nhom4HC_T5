@@ -46,6 +46,13 @@ namespace User.Register.Areas.User.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        public ActionResult CheckEmail(string email)
+        {
+            var service = new UserService();
+            var result = service.KiemTraEmail(email);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
 
         [HttpPost]
         public ActionResult CheckCaptchaValidate(string captchaCode)
