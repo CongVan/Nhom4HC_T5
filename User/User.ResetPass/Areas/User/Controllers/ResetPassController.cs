@@ -22,12 +22,13 @@ namespace User.ResetPass.Areas.User.Controllers
 
         public JsonResult LayLaiMatKhau(string Email)
         {
-            string new_MatKhau = CreateMD5("783192");
+            string new_MatKhau = RandomPassword(8);
+            string new_MatKhau_MD5 = CreateMD5(new_MatKhau);
             var result = UserModel.ResetMatKhau(Email, new_MatKhau);
 
             if (result.ResultID == 1)
             {
-                GuiEmail(Email, "783192");
+                GuiEmail(Email, new_MatKhau);
             }
 
             return Json(result, JsonRequestBehavior.AllowGet);
@@ -81,6 +82,14 @@ namespace User.ResetPass.Areas.User.Controllers
                 return sb.ToString();
             }
         }
-        
+
+        public string RandomPassword(int length)
+        {
+            Random rdom = new Random();
+            const string chars = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[rdom.Next(s.Length)]).ToArray());
+        }
+
     }
 }
