@@ -10,13 +10,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/User/Views/ResetPass/ResetPass.cshtml">
-      <publishTime>10/06/2018 11:48:50</publishTime>
+      <publishTime>10/16/2018 11:34:31</publishTime>
     </File>
     <File Include="bin/User.ResetPass.dll">
-      <publishTime>10/06/2018 14:34:48</publishTime>
+      <publishTime>10/16/2018 11:41:05</publishTime>
     </File>
     <File Include="bin/User.ResetPass.pdb">
-      <publishTime>10/06/2018 14:34:48</publishTime>
+      <publishTime>10/16/2018 11:41:05</publishTime>
     </File>
   </ItemGroup>
 </Project>

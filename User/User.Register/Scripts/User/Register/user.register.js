@@ -99,6 +99,10 @@ $('#btn-register').on('click', function () {
     }
 });
 
+$('#btn-callback').on('click', function () {
+    window.location.href = window.location.origin;
+});
+
 $('#tenDangNhap').focusout(function () {
     CheckExistsUserName();
 });
