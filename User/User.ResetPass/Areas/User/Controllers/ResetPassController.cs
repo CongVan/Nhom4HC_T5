@@ -24,7 +24,7 @@ namespace User.ResetPass.Areas.User.Controllers
         {
             string new_MatKhau = RandomPassword(8);
             string new_MatKhau_MD5 = CreateMD5(new_MatKhau);
-            var result = UserModel.ResetMatKhau(Email, new_MatKhau);
+            var result = UserModel.ResetMatKhau(Email, new_MatKhau_MD5);
 
             if (result.ResultID == 1)
             {
