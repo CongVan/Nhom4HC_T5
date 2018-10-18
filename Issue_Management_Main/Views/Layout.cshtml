@@ -44,14 +44,14 @@
         ga('create', 'UA-85622565-1', 'auto');
         ga('send', 'pageview');
     </script>
-    @RenderSection("css", false);
+    @RenderSection("css", false)
 </head>
 
-<body class="fix-header fix-sidebar card-no-border">
+<body class="fix-header fix-sidebar ">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
-    <div class="preloader">
+    <div class="preloader" id="loadingMain">
         <svg class="circular" viewBox="25 25 50 50">
             <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
         </svg>
@@ -673,7 +673,7 @@
     <!-- Chart JS -->
     @*<script src="~/public/js/dashboard1.js"></script>*@
     @*<script src="~/public/js/toastr.js"></script>*@
-    <script>
+    @*<script>
         $.toast({
             heading: 'Welcome to Monster admin',
             text: 'Use the predefined ones, or specify a custom position object.',
@@ -683,12 +683,12 @@
             hideAfter: 3000,
             stack: 6
         });
-    </script>
+    </script>*@
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="~/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
-    @RenderSection("js", false);
+    @RenderSection("js", false)
 </body>
 
 </html>
