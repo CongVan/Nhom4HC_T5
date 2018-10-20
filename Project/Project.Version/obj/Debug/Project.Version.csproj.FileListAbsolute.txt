@@ -1,0 +1,4 @@
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Project\Project.Version\bin\Project.Version.dll
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Project\Project.Version\bin\Project.Version.pdb
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Project\Project.Version\obj\Debug\Project.Version.dll
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Project\Project.Version\obj\Debug\Project.Version.pdb
