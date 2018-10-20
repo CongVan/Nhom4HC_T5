@@ -5,6 +5,7 @@
 }
 @section css{
 <link href="~/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+<link href="~/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
 }
 <div class="content">
     <div class="row py-3">
@@ -24,6 +25,12 @@
                 </td>
                 <td>
                     Mô tả
+                </td>
+                <td>
+                    Ngày bắt đầu
+                </td>
+                <td>
+                    Ngày kết thúc
                 </td>
                 <td>
                     Trạng thái
@@ -59,6 +66,14 @@
                     <label for="moTa">Mô tả</label>
                     <input type="text" class="form-control" id="moTa" placeholder="Mô tả">
                 </div>
+                <div class="form-group">
+                    <label for="ngayBatDau">Ngày bắt đầu</label>
+                    <input type="text" class="form-control date-deadline" id="ngayBatDau" placeholder="Ngày bắt đầu">
+                </div>
+                <div class="form-group">
+                    <label for="ngayKetThuc">Ngày kết thúc</label>
+                    <input type="text" class="form-control date-deadline" id="ngayKetThuc" placeholder="Ngày kết thúc">
+                </div>
                 <div class="form-check">
                     <label class="form-check-label" for="trangThai">
                     <input type="checkbox" class="form-check-input" id="trangThai" checked> Trạng thái
@@ -75,6 +90,8 @@
 @section js{
     <script src="~/assets/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="~/assets/plugins/datatables/dataTables.bootstrap.js"></script>
-<script src="~/assets/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="~/assets/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="~/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="~/assets/plugins/moment/min/moment.min.js"></script>
     <script src="~/Scripts/Project/Version/project.version.js"></script>
 }

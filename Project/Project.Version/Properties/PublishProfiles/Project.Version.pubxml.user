@@ -10,16 +10,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/Project/Views/Project/Index.cshtml">
-      <publishTime>10/18/2018 23:30:53</publishTime>
+      <publishTime>10/20/2018 16:58:59</publishTime>
     </File>
     <File Include="Areas/Project/Views/Project/Version.cshtml">
       <publishTime>10/18/2018 21:51:22</publishTime>
     </File>
     <File Include="bin/Project.Version.dll">
-      <publishTime>10/18/2018 23:12:27</publishTime>
+      <publishTime>10/20/2018 16:53:51</publishTime>
     </File>
     <File Include="Scripts/Project/Version/project.version.js">
-      <publishTime>10/19/2018 21:56:29</publishTime>
+      <publishTime>10/20/2018 17:12:55</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -24,6 +24,8 @@ namespace Project.Version.Areas.Project.Service
                     cmd.Parameters.Add("@TenPhienBan", SqlDbType.NVarChar).Value = model.TenPhienBan;
                     cmd.Parameters.Add("@MoTa", SqlDbType.NVarChar).Value = model.MoTa;
                     cmd.Parameters.Add("@DuAnID", SqlDbType.Int).Value = model.DuAnID;
+                    cmd.Parameters.Add("@NgayBatDau", SqlDbType.DateTime).Value = Convert.ToDateTime(model.NgayBatDau);
+                    cmd.Parameters.Add("@NgayKetThuc", SqlDbType.DateTime).Value = Convert.ToDateTime(model.NgayKetThuc);
                     cmd.Parameters.Add("@NgayTao", SqlDbType.DateTime).Value = model.NgayTao;
                     cmd.Parameters.Add("@NguoiTao", SqlDbType.Int).Value = model.NguoiTao;
                     cmd.Parameters.Add("@NgayCapNhat", SqlDbType.DateTime).Value = model.NgayCapNhat;
@@ -58,6 +60,8 @@ namespace Project.Version.Areas.Project.Service
                             TenPhienBan = row["TenPhienBan"].ToString(),
                             MoTa = row["MoTa"].ToString(),
                             DuAnID = Convert.ToInt32(row["DuAnID"].ToString()),
+                            NgayBatDau = row["NgayBatDau"].ToString(),
+                            NgayKetThuc = row["NgayKetThuc"].ToString(),
                             TinhTrang = Convert.ToBoolean(row["TinhTrang"].ToString())
                         });
                     }

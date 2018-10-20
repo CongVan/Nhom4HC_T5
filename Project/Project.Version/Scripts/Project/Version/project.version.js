@@ -1,6 +1,12 @@
-﻿var table = null;
+﻿var dateFormat = 'dd/MM/yyyy';
+var table = null;
 
 $(document).ready(function () {
+    $('.date-deadline').datepicker({
+        format: 'dd/mm/yyyy',
+        autoclose: true,
+        todayHighlight: true
+    });
     BindDataVersion();
     $('#modalVersion').on('hidden.bs.modal', function () {
         resetModal();
@@ -82,8 +88,10 @@ var LoadDataTable = function (data) {
     table = $('#myTable').DataTable({
         "data": data,
         "columns": [
-            { "data": "TenPhienBan","width":"20%" },
-            { "data": "MoTa" , "width":"40%" },
+            { "data": "TenPhienBan","width":"15%" },
+            { "data": "MoTa", "width": "25%" },
+            { "data": "NgayBatDau", "width": "15%" },
+            { "data": "NgayKetThuc", "width": "15%" },
             {
                 "render": function (data, type, full, row) {
                     return full.TinhTrang == true 
@@ -94,7 +102,7 @@ var LoadDataTable = function (data) {
             {
                 "render": function (data, type, full, row) {
                     return '<input type="button" class="btn btn-info edit-version" data-id="'+full.Id+'" value="Sửa">';
-                },"width":"20%"
+                },"width":"10%"
             }
         ],
         "searching": true,
@@ -107,6 +115,8 @@ var resetModal = function () {
     $('#idVersion').val('');
     $('#tenPhienBan').val('');
     $('#moTa').val('');
+    $('#ngayBatDau').datepicker('setDate', new Date());
+    $('#ngayKetThuc').datepicker('setDate', new Date());
     $('#trangThai').prop('checked', true);
 }
 
@@ -116,6 +126,8 @@ var getModel = function () {
         TenPhienBan: $('#tenPhienBan').val(),
         MoTa: $('#moTa').val(),
         DuAnID: $('#idProject').val(),
+        NgayBatDau: new moment($('#ngayBatDau').val(), dateFormat.toUpperCase()).format("MM/DD/YYYY"),
+        NgayKetThuc: new moment($('#ngayKetThuc').val(),dateFormat.toUpperCase()).format("MM/DD/YYYY"),
         TinhTrang: $('#trangThai').is(':checked')
     };
     return obj;
@@ -125,5 +137,7 @@ var setModal = function (data) {
     $('#idVersion').val(data.Id);
     $('#tenPhienBan').val(data.TenPhienBan);
     $('#moTa').val(data.MoTa);
+    $('#ngayBatDau').datepicker('setDate', data.NgayBatDau);
+    $('#ngayKetThuc').datepicker('setDate', data.NgayKetThuc);
     $('#trangThai').prop('checked', data.TinhTrang);
 }

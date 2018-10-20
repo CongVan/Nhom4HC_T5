@@ -11,6 +11,8 @@ namespace Project.Version.Areas.Project.Models
         public string TenPhienBan { get; set; }
         public string MoTa { get; set; }
         public int DuAnID { get; set; }
+        public string NgayBatDau { get; set; }
+        public string NgayKetThuc { get; set; }
         public DateTime? NgayTao { get; set; }
         public int NguoiTao { get; set; }
         public DateTime? NgayCapNhat { get; set; }
