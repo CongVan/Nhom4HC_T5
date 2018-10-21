@@ -1,0 +1,5 @@
+D:\monthu5\Nhom4HC_T5\Project\Project.Member\bin\Project.Member.dll
+D:\monthu5\Nhom4HC_T5\Project\Project.Member\bin\Project.Member.pdb
+D:\monthu5\Nhom4HC_T5\Project\Project.Member\obj\Release\Project.Member.csprojResolveAssemblyReference.cache
+D:\monthu5\Nhom4HC_T5\Project\Project.Member\obj\Release\Project.Member.dll
+D:\monthu5\Nhom4HC_T5\Project\Project.Member\obj\Release\Project.Member.pdb
