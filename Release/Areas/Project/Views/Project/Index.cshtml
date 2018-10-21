@@ -1,0 +1,100 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@{
+    Layout = "~/Views/Layout.cshtml";
+    //ViewsBag.Title = "Trang đăng ký";
+}
+@section css{
+<link href="~/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+<link href="~/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
+}
+<div class="content">
+    <div class="row">
+        <h4>@ViewBag.ProjectName</h4>
+    </div>
+    <div class="row py-3">
+        <div class="col-md-10">
+           <label>Quản lý phiên bản</label>
+        </div>
+        <div class="col-md-2">
+            <input type="button" id="btnThem" class="btn btn-info btn-success" value="Thêm phiên bản">
+        </div>
+    </div>
+    <input type="hidden" id="idProject" value="@ViewBag.IdProject"/>
+    <table id="myTable" class="table">
+        <thead>
+            <tr>
+                <td>
+                    Tên phiên bản
+                </td>
+                <td>
+                    Mô tả
+                </td>
+                <td>
+                    Ngày bắt đầu
+                </td>
+                <td>
+                    Ngày kết thúc
+                </td>
+                <td>
+                    Trạng thái
+                </td>
+                <td>
+                    Chức năng
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalVersion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm / Chỉnh sửa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="idVersion" value=""/>
+                <div class="form-group">
+                    <label for="tenPhienBan">Tên phiên bản</label>
+                    <input type="text" class="form-control" id="tenPhienBan" placeholder="Tên phiên bản">
+                </div>
+                <div class="form-group">
+                    <label for="moTa">Mô tả</label>
+                    <input type="text" class="form-control" id="moTa" placeholder="Mô tả">
+                </div>
+                <div class="form-group">
+                    <label for="ngayBatDau">Ngày bắt đầu</label>
+                    <input type="text" class="form-control date-deadline" id="ngayBatDau" placeholder="Ngày bắt đầu">
+                </div>
+                <div class="form-group">
+                    <label for="ngayKetThuc">Ngày kết thúc</label>
+                    <input type="text" class="form-control date-deadline" id="ngayKetThuc" placeholder="Ngày kết thúc">
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label" for="trangThai">
+                    <input type="checkbox" class="form-check-input" id="trangThai" checked> Trạng thái
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnThoat" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+                <button type="button" id="btnLuu" class="btn btn-primary">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section js{
+    <script src="~/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/assets/plugins/datatables/dataTables.bootstrap.js"></script>
+    <script src="~/assets/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="~/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="~/assets/plugins/moment/min/moment.min.js"></script>
+    <script src="~/Scripts/Project/Version/project.version.js"></script>
+}
