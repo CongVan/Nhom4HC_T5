@@ -50,6 +50,22 @@ namespace Project.Version.Areas.Project.Service
             }
         }
 
+        public int GetPermission(int userId,int projectId)
+        {
+            using (var conn = new SqlConnection(strConn))
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_PhienBan_CheckUserProject", conn))
+                {
+                    conn.Open();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@TruongDuAnID", SqlDbType.Int).Value = userId;
+                    cmd.Parameters.Add("@DuAnID", SqlDbType.Int).Value = projectId;
+                    var result = cmd.ExecuteScalar();
+                    return (int)result;
+                }
+            }
+        }
+
         public List<VersionModel> GetAllVersion(int duanId)
         {
             using (var conn = new SqlConnection(strConn))

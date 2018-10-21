@@ -68,7 +68,7 @@ var getObjectFromArray = function (array,key) {
 
 var BindDataVersion = function () {
     $.ajax({
-        url: '/Project/Version/GetAllVersion',
+        url: '/Project/Version/GetAllVersion/' + $('#idProject').val(),
         type: 'GET',
         dataType:'json',
         success: function (response) {

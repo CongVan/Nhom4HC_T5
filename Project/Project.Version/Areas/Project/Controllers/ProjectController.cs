@@ -16,8 +16,18 @@ namespace Project.Version.Areas.Project.Controllers
         
         public ActionResult Index(string id)
         {
+            if(string.IsNullOrEmpty(id) || string.IsNullOrEmpty(Session["UserID"].ToString()))
+            {
+                return Redirect("~/");
+            }
             ViewBag.IdProject = id;
             var service = new VersionService();
+            var userID = Convert.ToInt32(Session["UserID"].ToString());
+            var permission = service.GetPermission(userID, Convert.ToInt32(id));
+            if(permission < 0)
+            {
+                return Redirect("~/");
+            }
             var projectName = service.GetNameProject(Convert.ToInt32(id));
             if (!string.IsNullOrEmpty(projectName))
                 ViewBag.ProjectName = projectName;
@@ -43,10 +53,10 @@ namespace Project.Version.Areas.Project.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult GetAllVersion()
+        public ActionResult GetAllVersion(int id)
         {
             var service = new VersionService();
-            var result = service.GetAllVersion(1);
+            var result = service.GetAllVersion(id);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
