@@ -193,6 +193,8 @@ var btnProjectDetail_Click = function (id) {
             $('#frmUpdateProject textarea[name="MoTa"]').val(project[0].MoTa);
             $('#frmUpdateProject select[name="TruongDuAnID"]').val(project[0].TruongDuAnID);
             $('#viewVersions').attr('href', '/Project/Version/Index/' + id);
+            $('#viewMembers').attr('href', '/Project/Member/?id=' + id);
+            
             $('.nav-tabs a[href="#projectDetail"]').tab('show');
         }).catch(function (x, t, e) {
             console.log(e);
