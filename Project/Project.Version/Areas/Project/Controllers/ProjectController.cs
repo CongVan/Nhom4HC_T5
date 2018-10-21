@@ -17,6 +17,10 @@ namespace Project.Version.Areas.Project.Controllers
         public ActionResult Index(string id)
         {
             ViewBag.IdProject = id;
+            var service = new VersionService();
+            var projectName = service.GetNameProject(Convert.ToInt32(id));
+            if (!string.IsNullOrEmpty(projectName))
+                ViewBag.ProjectName = projectName;
             return View();
         }
 

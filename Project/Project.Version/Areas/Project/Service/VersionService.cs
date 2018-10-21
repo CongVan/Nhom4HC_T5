@@ -35,6 +35,20 @@ namespace Project.Version.Areas.Project.Service
                 }
             }
         }
+        public string GetNameProject(int id)
+        {
+            using (var conn = new SqlConnection(strConn))
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_LayTenDuAn", conn))
+                {
+                    conn.Open();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@ID", SqlDbType.Int).Value = id;
+                    var result = cmd.ExecuteScalar();
+                    return result + string.Empty;
+                }
+            }
+        }
 
         public List<VersionModel> GetAllVersion(int duanId)
         {
