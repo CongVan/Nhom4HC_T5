@@ -1,0 +1,136 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@{
+    Layout = "/Views/Layout.cshtml";
+    ViewBag.Title = "Quản lý dự án";
+}
+@section css{
+    <link href="~/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    @*<link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.css" rel="stylesheet"/>*@
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs customtab" role="tablist">
+                @*<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#projectAdd" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Tạo mới dự án</span></a> </li>*@
+                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#projectList" role="tab"><span class="hidden-sm-up"><i class="ti-menu-alt"></i></span> <span class="hidden-xs-down">Các dự án</span></a> </li>
+                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#projectDetail" role="tab"><span class="hidden-sm-up"><i class="ti-file"></i></span> <span class="hidden-xs-down">Chi tiết</span></a> </li>
+
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="projectList" role="tabpanel">
+                    <div class="row p-20">
+                        <div class="col-12">
+                            <blockquote class="d-flex justify-content-between py-1">
+                                <h3 class="mb-0">Các dự án</h3>
+                                <button class="btn btn-info" data-toggle="modal" data-target="#modalAddProject" id="btnAddProject">Tạo dự án mới</button>
+                            </blockquote>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-striped display nowrap" id="tableProject" data-toggle="datatables">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Tên dự án</th>
+                                            <th>Ngày khởi tạo</th>
+                                            <th>Trưởng dự án</th>
+                                            <th>&nbsp;</th>
+                                        </tr>
+                                    </thead>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane  p-20" id="projectDetail" role="tabpanel">
+                    <form id="frmUpdateProject" action="/Project/Management/UpdateProject" method="post">
+                        <div class="form-group row mb-1">
+                            <label for="recipient-name" class="control-label col-lg-3">Tên dự án</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" name="TenDuAn">
+                                <input type="hidden" name="DuAnID"/>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-1">
+                            <label for="recipient-name" class="control-label col-lg-3">Ngày khởi tạo</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" name="NgayTao" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-1">
+                            <label for="message-text" class="control-label col-lg-3">Mô tả</label>
+                            <div class="col-lg-9">
+                                <textarea class="form-control" name="MoTa" rows="4"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-1">
+                            <label for="recipient-name" class="control-label col-lg-3">Trưởng dự án</label>
+                            <div class="col-lg-9">
+                                <select name="TruongDuAnID" class="custom-select col-lg-12"></select>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-1">
+                            <label for="recipient-name" class="control-label col-lg-3">&nbsp;</label>
+                            <div class="col-lg-9">
+                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Hủy</button>
+                                <button type="submit" class="btn btn-success waves-effect waves-light">Cập nhật</button>
+                                <a class="btn btn-info" href="#" id="viewVersions">Xem các phiên bản</a>
+                            </div>
+                        </div>
+                        
+                    </form>
+
+                </div>
+                <div class="tab-pane p-20" id="messages2" role="tabpanel">3</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="modalAddProject" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-info">TẠO DỰ ÁN</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <form id="frmAddProject" action="/Project/Management/AddProject" method="post">
+                <div class="modal-body">
+                    <div class="form-group row mb-1">
+                        <label for="recipient-name" class="control-label col-lg-3">Tên dự án</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" name="TenDuAn">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-1">
+                        <label for="message-text" class="control-label col-lg-3">Mô tả</label>
+                        <div class="col-lg-9">
+                            <textarea class="form-control" name="MoTa" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-1">
+                        <label for="recipient-name" class="control-label col-lg-3">Trưởng dự án</label>
+                        <div class="col-lg-9">
+                            <select name="TruongDuAnID" class="custom-select col-lg-12">
+                            </select>
+                            @*<input type="text" class="form-control" name="TruongDuAnID">*@
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-success waves-effect waves-light">Hoàn tất</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section js{
+    <script src="~/assets/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="~/assets/plugins/wizard/jquery.validate.min.js"></script>
+    @*<script src="~/assets/plugins/datatables/dataTables.bootstrap.js"></script>*@
+    <script src="~/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/Project/Project.Create.js"></script>
+}
