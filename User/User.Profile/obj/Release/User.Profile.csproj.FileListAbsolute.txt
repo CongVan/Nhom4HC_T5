@@ -1,0 +1,10 @@
+C:\Users\MAU\Desktop\Nhom4HC_T5-master\User\User.Profile\bin\User.Profile.dll
+C:\Users\MAU\Desktop\Nhom4HC_T5-master\User\User.Profile\bin\User.Profile.pdb
+C:\Users\MAU\Desktop\Nhom4HC_T5-master\User\User.Profile\obj\Release\User.Profile.dll
+C:\Users\MAU\Desktop\Nhom4HC_T5-master\User\User.Profile\obj\Release\User.Profile.pdb
+C:\Users\MAU\Desktop\Nhom4HC_T5-master\User\User.Profile\obj\Release\User.Profile.csprojResolveAssemblyReference.cache
+C:\Users\MAU\Desktop\PROEjCT MAIN\Nhom4HC_T5\User\User.Profile\bin\User.Profile.dll
+C:\Users\MAU\Desktop\PROEjCT MAIN\Nhom4HC_T5\User\User.Profile\bin\User.Profile.pdb
+C:\Users\MAU\Desktop\PROEjCT MAIN\Nhom4HC_T5\User\User.Profile\obj\Release\User.Profile.csprojResolveAssemblyReference.cache
+C:\Users\MAU\Desktop\PROEjCT MAIN\Nhom4HC_T5\User\User.Profile\obj\Release\User.Profile.dll
+C:\Users\MAU\Desktop\PROEjCT MAIN\Nhom4HC_T5\User\User.Profile\obj\Release\User.Profile.pdb
