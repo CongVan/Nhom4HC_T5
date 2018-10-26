@@ -119,7 +119,6 @@
   <ItemGroup>
     <Content Include="Areas\User\Views\User\AccountSetting.cshtml" />
     <Content Include="Scripts\User\AccountSetting\user.AccountSetting.js" />
-    <Content Include="ClassDiagram1.cd" />
     <None Include="Properties\PublishProfiles\User.AccountSetting.pubxml" />
   </ItemGroup>
   <PropertyGroup>
