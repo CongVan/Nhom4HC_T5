@@ -12,8 +12,9 @@ namespace Issue.Create.Areas.Issue.Models
 {
     public class IssueTypeModel
     {
-        public string LoaiVanDeID { get; set; }
-        public string TenLoaiVanDe { get; set; }
+        public string Value { get; set; }
+        public string ID { get; set; }
+        public string Name { get; set; }
 
         public static List<IssueTypeModel> LoaiVanDe_LayDanhSach()
         {
@@ -27,8 +28,9 @@ namespace Issue.Create.Areas.Issue.Models
                     for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                     {
                         IssueTypeModel it = new IssueTypeModel();
-                        it.LoaiVanDeID = ds.Tables[0].Rows[i]["LoaiVanDeID"].ToString();
-                        it.TenLoaiVanDe = ds.Tables[0].Rows[i]["TenLoaiVanDe"].ToString();
+                        it.Value = "txtLoaiVanDe";
+                        it.ID = ds.Tables[0].Rows[i]["LoaiVanDeID"].ToString();
+                        it.Name = ds.Tables[0].Rows[i]["TenLoaiVanDe"].ToString();
 
                         res.Add(it);
                     }

@@ -16,8 +16,8 @@ namespace Issue.Create.Areas.Issue.Controllers
 
         public ActionResult Create()
         {
-            if (Request.Form["VanDeID"] != null)
-                ViewBag.VanDeID = Request.Form["VanDeID"].ToString();
+            if (Request.QueryString["VanDeID"] != null)
+                ViewBag.VanDeID = Request.QueryString["VanDeID"];
             else
                 ViewBag.VanDeID = 0;
 
@@ -30,6 +30,23 @@ namespace Issue.Create.Areas.Issue.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult LayThongTinVanDe(int VanDeID)
+        {
+            var result = IssueModel.LayThongTinVanDe(VanDeID);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult LayDanhSachTaiKhoan()
+        {
+            var result = IssueModel.LayDanhSachTaiKhoan();
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult LayDanhSachDuAn()
+        {
+            var result = IssueModel.LayDanhSachDuAn();
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
         public JsonResult CapNhatVanDe()
         {
             IssueModel IM = new IssueModel();

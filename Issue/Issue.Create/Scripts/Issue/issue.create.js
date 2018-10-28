@@ -4,7 +4,94 @@
         autoclose: true,
         todayHighlight: true
     });
+    LayDanhSachDuAn();
+    LayDanhSachLoaiVanDe();
+    LayDanhSachTaiKhoan();
+
+    var VanDeID = $('#txtVanDeID').val();
+    if (VanDeID > 0) {
+        LayThongTinVanDe(VanDeID);
+    }
 });
+
+function LayThongTinVanDe(VanDeID) {
+    $.ajax({
+        url: "/Issue/Create/LayThongTinVanDe",
+        type: "POST",
+        data: { "VanDeID": VanDeID}
+    }).done(function (data) {
+        if (data.DuAnID > 0) {
+            $('#DuAnID').val(data.DuAnID);
+            $('#txtLoaiVanDe').val(data.LoaiVanDeID);
+            $('#txtTenVanDe').val(data.TenVanDe);
+            $('#txtMoTa').val(data.MoTa);
+            $('#txtTrangThai').val(data.TrangThai);
+            $('#txtNguoiThucHien').val(data.NguoiThucHien);
+            $('#txtNgayBatDau').val(data.NgayBatDau);
+            $('#txtNgayKetThuc').val(data.NgayKetThuc);
+            $('#txtSoGioDuKien').val(data.SoGioDuKien);
+            $('#txtSoGioThucTe').val(data.SoGioThucTe);
+        }       
+    }).fail(function (xhr, status, err) {
+        console.log(status);
+        console.log(err);
+    });
+}
+
+function LayDanhSachDuAn() {
+    $.ajax({
+        url: "/Issue/Create/LayDanhSachDuAn",
+        type: "POST",
+        //data: { "VanDeID": VanDeID }
+    }).done(function (data) {
+
+        var source = document.getElementById('DuAnID-template').innerHTML;
+        var template = Handlebars.compile(source);
+        var html = template(data);        
+        $('#lstDuAn').html(html);
+
+    }).fail(function (xhr, status, err) {
+        console.log(status);
+        console.log(err);
+    });
+}
+
+function LayDanhSachLoaiVanDe() {
+    $.ajax({
+        url: "/Issue/Create/LayDanhSachLoaiVanDe",
+        type: "POST",
+        //data: { "VanDeID": VanDeID }
+    }).done(function (data) {
+
+        var source = document.getElementById('LoaiVanDe-template').innerHTML;
+        var template = Handlebars.compile(source);
+        var html = template(data);
+        $('#lstLoaiVanDe').html(html);
+
+    }).fail(function (xhr, status, err) {
+        console.log(status);
+        console.log(err);
+    });
+}
+
+
+function LayDanhSachTaiKhoan() {
+    $.ajax({
+        url: "/Issue/Create/LayDanhSachTaiKhoan",
+        type: "POST",
+        //data: { "VanDeID": VanDeID }
+    }).done(function (data) {
+
+        var source = document.getElementById('NguoiThucHien-template').innerHTML;
+        var template = Handlebars.compile(source);
+        var html = template(data);
+        $('#lstNguoiThucHien').html(html);
+
+    }).fail(function (xhr, status, err) {
+        console.log(status);
+        console.log(err);
+    });
+}
 
 $("#btnCapNhat").on('click', function () {
     var VanDeID = $('#txtVanDeID').val();
@@ -44,7 +131,7 @@ $("#btnCapNhat").on('click', function () {
         }).done(function (data) {
             console.log(data);
 
-            if (data.ResultID == 1)
+            if (data.ResultID > 0)
                 type = "success";
             else
                 type = "error";
