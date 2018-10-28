@@ -1,7 +1,105 @@
 ﻿@inherits System.Web.Mvc.WebViewPage
 @{
-    Layout = "~/Views/Layout.cshtml";
-   
+    Layout = "/Views/Layout.cshtml";
+    ViewBag.Title = "Issue";
+}
+@section css{
+    <link href="~/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    @*<link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.css" rel="stylesheet"/>*@
 }
 
-<h4>Create</h4>
+
+<div class="modal-header">
+    <h4 class="modal-title text-info">VẤN ĐỀ</h4>
+</div>
+<form id="frmUpdateIssue" action="/Issue/Create/CapNhatVanDe" method="post">
+    <div class="form-group row mb-1">
+        <label for="recipient-name" class="control-label col-lg-3">Tên dự án</label>
+        <div class="col-lg-9">
+            <input type="text" class="form-control" name="TenDuAn">
+            <input type="hidden" name="DuAnID" />
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <label for="recipient-name" class="control-label col-lg-3">Loại vấn đề</label>
+        <div class="col-lg-9">
+            <div id="lstLoaiVanDe"></div>
+            
+            <select name="txtLoaiVanDe" class="custom-select col-lg-12">
+                <option value="1" selected>Task</option>
+                <option value="11">Story</option>
+                <option value="21">Bug</option>
+                <option value="31">Epic</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <label for="message-text" class="control-label col-lg-3">Tên vấn đề</label>
+        <div class="col-lg-9">
+            <input type="text" class="form-control" name="txtTenVanDe">
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <label for="message-text" class="control-label col-lg-3">Mô tả chi tiết</label>
+        <div class="col-lg-9">
+            <textarea class="form-control" name="txtMoTa" rows="4"></textarea>
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <label for="recipient-name" class="control-label col-lg-3">Trạng thái</label>
+        <div class="col-lg-9">
+            <select name="txtTrangThai" class="custom-select col-lg-12">
+                <option value="1" selected>Chưa xác nhận</option>
+                <option value="2">Đã xác nhận</option>
+                <option value="3">Đang thực hiện</option>
+                <option value="4">Đã xử lý xong</option>                
+            </select>
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <label for="recipient-name" class="control-label col-lg-3">Người thực hiện</label>
+        <div class="col-lg-9">
+            <select name="txtNguoiThucHien" class="custom-select col-lg-12"></select>
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <label for="recipient-name" class="control-label col-lg-3">Ngày bắt đầu</label>
+        <div class="col-lg-9">
+            <input class="form-control dateOfbirth" type="text" name="txtNgayBatDau" class="form-control"></input>
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <label for="recipient-name" class="control-label col-lg-3">Ngày kết thúc</label>
+        <div class="col-lg-9">
+            <input type="text" name="txtNgayKetThuc" class="form-control"></input>
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <label for="recipient-name" class="control-label col-lg-3">Số giờ dự kiến</label>
+        <div class="col-lg-9">
+            <input type="number" name="txtSoGioDuKien" class="form-control"></input>
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <label for="recipient-name" class="control-label col-lg-3">Số giờ thực tế</label>
+        <div class="col-lg-9">
+            <input type="number" name="txtSoGioThucTe" class="form-control"></input>
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <label for="recipient-name" class="control-label col-lg-3">&nbsp;</label>
+        <div class="col-lg-9">
+            <button type="submit" class="btn btn-success waves-effect waves-light">Cập nhật</button>
+            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Hủy</button>
+        </div>
+    </div>
+
+</form>
+
+@section js{
+    <script src="~/assets/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="~/assets/plugins/wizard/jquery.validate.min.js"></script>
+    @*<script src="~/assets/plugins/datatables/dataTables.bootstrap.js"></script>*@
+    <script src="~/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/Issue/issue.create.js"></script>
+}
