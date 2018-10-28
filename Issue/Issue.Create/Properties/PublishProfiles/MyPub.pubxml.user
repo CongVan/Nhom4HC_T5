@@ -6,20 +6,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\Issue_Management_Main</_PublishTargetUrl>
+    <_PublishTargetUrl>http://localhost:54383/</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/Issue/Views/Issue/Create.cshtml">
-      <publishTime>10/23/2018 20:28:46</publishTime>
+      <publishTime>09/28/2018 15:42:11</publishTime>
     </File>
     <File Include="bin/Issue.Create.dll">
-      <publishTime>10/23/2018 20:43:29</publishTime>
-    </File>
-    <File Include="bin/Issue.Create.pdb">
-      <publishTime>10/23/2018 20:43:29</publishTime>
-    </File>
-    <File Include="Scripts/Issue/issue.create.js">
-      <publishTime>10/22/2018 19:35:13</publishTime>
+      <publishTime>09/29/2018 10:57:04</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -3,9 +3,3 @@ E:\HocTap\HC(2018-2019)\HK_III\QL_QTPM_T5\Issue_Management_Main\Issue\Issue.Crea
 E:\HocTap\HC(2018-2019)\HK_III\QL_QTPM_T5\Issue_Management_Main\Issue\Issue.Create\obj\Release\Issue.Create.dll
 E:\HocTap\HC(2018-2019)\HK_III\QL_QTPM_T5\Issue_Management_Main\Issue\Issue.Create\obj\Release\Issue.Create.pdb
 E:\HocTap\HC(2018-2019)\HK_III\QL_QTPM_T5\Issue_Management_Main\Issue\Issue.Create\obj\Release\Issue.Create.csprojResolveAssemblyReference.cache
-E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\Issue\Issue.Create\bin\Issue.Create.dll
-E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\Issue\Issue.Create\bin\Issue.Create.pdb
-E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\Issue\Issue.Create\obj\Release\Issue.Create.csprojAssemblyReference.cache
-E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\Issue\Issue.Create\obj\Release\Issue.Create.csproj.CoreCompileInputs.cache
-E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\Issue\Issue.Create\obj\Release\Issue.Create.dll
-E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Source\Nhom4HC_T5\Issue\Issue.Create\obj\Release\Issue.Create.pdb
