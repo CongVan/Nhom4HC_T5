@@ -1,7 +1,115 @@
 ﻿@inherits System.Web.Mvc.WebViewPage
 @{
-    Layout = "~/Views/Layout.cshtml";
-   
+    Layout = "/Views/Layout.cshtml";
+    ViewBag.Title = "Issue";
+}
+@section css{
+    <link href="~/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    @*<link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.css" rel="stylesheet"/>*@
 }
 
-<h4>Create</h4>
+
+<div class="modal-header">
+    <h4 class="modal-title text-info">VẤN ĐỀ</h4>
+</div>
+<form>
+    <div class="form-group row mb-1">
+        <label for="recipient-name" class="control-label col-lg-3">Tên dự án</label>
+        <div class="col-lg-9">
+            <select id="DuAnID" class="custom-select col-lg-12">
+                <option value="1" selected>Dự án 1</option>
+                <option value="2">Dự án 2</option>
+                <option value="3">Dự án 3</option>
+                <option value="4">Dự án 4</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <label for="recipient-name" class="control-label col-lg-3">Loại vấn đề</label>
+        <div class="col-lg-9">
+            <div id="lstLoaiVanDe"></div>
+
+            <select id="txtLoaiVanDe" class="custom-select col-lg-12">
+                <option value="1" selected>Task</option>
+                <option value="11">Story</option>
+                <option value="21">Bug</option>
+                <option value="31">Epic</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <label for="message-text" class="control-label col-lg-3">Tên vấn đề</label>
+        <div class="col-lg-9">
+            <input type="text" class="form-control" id="txtTenVanDe">
+            <input type="text" class="form-control" id="txtVanDeID" value=@ViewBag.VanDeID hidden>
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <label for="message-text" class="control-label col-lg-3">Mô tả chi tiết</label>
+        <div class="col-lg-9">
+            <textarea class="form-control" id="txtMoTa" rows="4"></textarea>
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <label for="recipient-name" class="control-label col-lg-3">Trạng thái</label>
+        <div class="col-lg-9">
+            <select id="txtTrangThai" class="custom-select col-lg-12">
+                <option value="1" selected>Chưa xác nhận</option>
+                <option value="2">Đã xác nhận</option>
+                <option value="3">Đang thực hiện</option>
+                <option value="4">Đã xử lý xong</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <label for="recipient-name" class="control-label col-lg-3">Người thực hiện</label>
+        <div class="col-lg-9">
+            <select id="txtNguoiThucHien" class="custom-select col-lg-12">
+                <option value="111" selected>GiauTQ</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <label for="recipient-name" class="control-label col-lg-3">Ngày bắt đầu</label>
+        <div class="col-lg-9">
+            <input class="form-control datepicker" type="text" id="txtNgayBatDau"></input>
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <label for="recipient-name" class="control-label col-lg-3">Ngày kết thúc</label>
+        <div class="col-lg-9">
+            <input type="text" id="txtNgayKetThuc" class="form-control datepicker"></input>
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <label for="recipient-name" class="control-label col-lg-3">Số giờ dự kiến</label>
+        <div class="col-lg-9">
+            <input type="number" id="txtSoGioDuKien" class="form-control" value="0" min="0"></input>
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <label for="recipient-name" class="control-label col-lg-3">Số giờ thực tế</label>
+        <div class="col-lg-9">
+            <input type="number" id="txtSoGioThucTe" class="form-control" value="0" min="0"></input>
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <label for="recipient-name" class="control-label col-lg-3">&nbsp;</label>
+        <div class="col-lg-9">
+            <button type="button" class="btn btn-success waves-effect waves-light" id="btnCapNhat">Cập nhật</button>
+            <button type="reset class="btn btn-default waves-effect">Hủy</button>
+        </div>
+    </div>
+
+</form>
+
+@section js{
+    <script src="~/assets/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="~/assets/plugins/wizard/jquery.validate.min.js"></script>
+    <script src="~/assets/plugins/bootstrap/js/tether.min.js"></script>
+    <script src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    @*<script src="~/assets/plugins/datatables/dataTables.bootstrap.js"></script>*@
+    <script src="~/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/Issue/issue.create.js"></script>
+}
