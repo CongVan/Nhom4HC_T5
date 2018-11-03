@@ -11,9 +11,6 @@ namespace Project.Version.Areas.Project.Controllers
 {
     public class ProjectController : Controller
     {
-        //
-        // GET: /Project/Project/
-        
         public ActionResult Index(string id)
         {
             if(string.IsNullOrEmpty(id) || string.IsNullOrEmpty(Session["UserID"].ToString()))
@@ -57,6 +54,15 @@ namespace Project.Version.Areas.Project.Controllers
         {
             var service = new VersionService();
             var result = service.GetAllVersion(id);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult CheckValidName(string Id, string duAnID, string tenPhienBan)
+        {
+            var idVerSion = string.IsNullOrEmpty(Id) ? 0 : Convert.ToInt32(Id);
+            var idProject = string.IsNullOrEmpty(duAnID) ? 0 : Convert.ToInt32(duAnID);
+            var service = new VersionService();
+            var result = service.CheckValidName(idVerSion, idProject, tenPhienBan);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
