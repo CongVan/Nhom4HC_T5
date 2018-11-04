@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +41,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Issue.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Issue_Management_Main\bin\Issue.DAL.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -114,13 +121,14 @@
   <ItemGroup>
     <Compile Include="Areas\Issue\Controllers\IssueController.cs" />
     <Compile Include="Areas\Issue\IssueAreaRegistration.cs" />
+    <Compile Include="Areas\Issue\Models\IssueModel.cs" />
+    <Compile Include="Areas\Issue\Models\IssueModelType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Areas\Issue\Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Areas\Issue\Views\Issue\Create.cshtml" />
+    <Content Include="Scripts\Issue\issue.create.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\MyPub.pubxml" />

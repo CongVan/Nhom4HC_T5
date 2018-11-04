@@ -1,0 +1,73 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@{
+    Layout = "/Views/Layout.cshtml";
+    ViewBag.Title = "Issue";
+}
+@section css{
+    <link href="~/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    @*<link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.css" rel="stylesheet"/>*@
+}
+
+
+<div class="modal-header">
+    <h4 class="modal-title text-info">DANH SÁCH VẤN ĐỀ</h4>
+</div>
+<form>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped display nowrap" id="tableProject" data-toggle="datatables">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Tên vấn đề</th>
+                    <th>Tên dự án</th>
+                    <th>Mô tả</th>
+                    <th>Trạng thái</th>
+                    <th>Người thực hiện</th>
+                    <th>Ngày bắt đầu</th>
+                    <th>Ngày kết thúc</th>
+                    <th>Số giờ dự kiến</th>
+                    <th>Số giờ thực tế</th>
+                    <th>&nbsp;</th>
+                </tr>
+            <tbody id="ListIssue"></tbody>
+            </thead>
+        </table>
+    </div>
+    <script id="Issue-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <tr>
+            <td>{{STT}}</td>
+            <td>
+                <a target="_blank" href="/Issue/Create/?VanDeID={{VanDeID}}">
+                    {{TenVanDe}}
+                </a>
+            </td>
+            <td>{{TenDuAn}}</td>
+            <td>{{MoTa}}</td>
+            <td>{{TrangThaiDesc}}</td>
+            <td>{{TenDangNhap}}</td>
+            <td>{{NgayBatDau}}</td>
+            <td>{{NgayKetThuc}}</td>
+            <td>{{SoGioDuKien}}</td>
+            <td>{{SoGioThucTe}}</td>
+            <td class="text-right">
+                <a class="btn btn-xs btn-danger del" href="javascript:;" role="button" data-id="{{VanDeID}}">
+                    Xóa
+                </a>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+</form>
+
+@section js{
+    <script src="~/assets/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="~/assets/plugins/wizard/jquery.validate.min.js"></script>
+    <script src="~/assets/plugins/bootstrap/js/tether.min.js"></script>
+    <script src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+    @*<script src="~/assets/plugins/datatables/dataTables.bootstrap.js"></script>*@
+    <script src="~/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/Issue/issue.list.js"></script>
+}

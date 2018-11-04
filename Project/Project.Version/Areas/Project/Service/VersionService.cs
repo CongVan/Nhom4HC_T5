@@ -49,7 +49,6 @@ namespace Project.Version.Areas.Project.Service
                 }
             }
         }
-
         public int GetPermission(int userId,int projectId)
         {
             using (var conn = new SqlConnection(strConn))
@@ -65,7 +64,6 @@ namespace Project.Version.Areas.Project.Service
                 }
             }
         }
-
         public List<VersionModel> GetAllVersion(int duanId)
         {
             using (var conn = new SqlConnection(strConn))
@@ -96,6 +94,22 @@ namespace Project.Version.Areas.Project.Service
                         });
                     }
                     return lstResult;
+                }
+            }
+        }
+        public int CheckValidName(int Id, int duAnID, string tenPhienBan)
+        {
+            using (var conn = new SqlConnection(strConn))
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_PhienBan_CheckTenPhienBan", conn))
+                {
+                    conn.Open();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@ID", SqlDbType.Int).Value = Id;
+                    cmd.Parameters.Add("@DuAnID", SqlDbType.Int).Value = duAnID;
+                    cmd.Parameters.Add("@TenPhienBan", SqlDbType.NVarChar).Value = tenPhienBan;
+                    var result = cmd.ExecuteScalar();
+                    return (int)result;
                 }
             }
         }
