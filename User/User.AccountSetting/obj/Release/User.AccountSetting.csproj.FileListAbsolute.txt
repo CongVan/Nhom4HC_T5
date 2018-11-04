@@ -7,4 +7,3 @@ C:\Users\MAU\Desktop\PROEjCT MAIN\Nhom4HC_T5\User\User.AccountSetting\bin\User.A
 C:\Users\MAU\Desktop\PROEjCT MAIN\Nhom4HC_T5\User\User.AccountSetting\bin\User.AccountSetting.pdb
 C:\Users\MAU\Desktop\PROEjCT MAIN\Nhom4HC_T5\User\User.AccountSetting\obj\Release\User.AccountSetting.dll
 C:\Users\MAU\Desktop\PROEjCT MAIN\Nhom4HC_T5\User\User.AccountSetting\obj\Release\User.AccountSetting.pdb
-C:\Users\MAU\Desktop\PROEjCT MAIN\Nhom4HC_T5\User\User.AccountSetting\obj\Release\User.AccountSetting.csprojResolveAssemblyReference.cache
