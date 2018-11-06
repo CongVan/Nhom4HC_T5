@@ -366,13 +366,15 @@
                     <div class="profile-img"> <img src="~/assets/images/users/1.jpg" alt="user" /> </div>
                     <!-- User profile text-->
                     <div class="profile-text">
-                        <a href="index.html#" class="dropdown-toggle link u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Markarn Doe <span class="caret"></span></a>
+                        <a href="/User/AccountSetting" class="dropdown-toggle link u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">@System.Web.HttpContext.Current.Session["UserName"].ToString() <span class="caret"></span></a>
                         <div class="dropdown-menu animated flipInY">
-                            <a href="index.html#" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
-                            <a href="index.html#" class="dropdown-item"><i class="ti-wallet"></i> My Balance</a>
-                            <a href="index.html#" class="dropdown-item"><i class="ti-email"></i> Inbox</a>
-                            <div class="dropdown-divider"></div> <a href="index.html#" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>
-                            <div class="dropdown-divider"></div> <a href="login.html" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
+                            <a href="/User/AccountSetting" class="dropdown-item"><i class="ti-user"></i> Thông tin tài khoản</a>
+                            <a href="/User/ChangePass" class="dropdown-item"><i class="ti-wallet"></i> Đổi mật khẩu</a>
+                            @*<a href="index.html#" class="dropdown-item"><i class="ti-email"></i> Inbox</a>*@
+                            <div class="dropdown-divider"></div> @*<a href="index.html#" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>*@
+                            <div class="dropdown-divider"></div> <a href="/User/Logout" class="dropdown-item">
+    <i class="fa fa-power-off"></i> Đăng xuất
+</a>
                         </div>
                     </div>
                 </div>
@@ -380,37 +382,41 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li class="nav-small-cap">PERSONAL</li>
+                        @*<li class="nav-small-cap">PERSONAL</li>*@
                         <li>
-                            <a class="has-arrow" href="index.html#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard <span class="label label-rounded label-success">5</span></span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="index.html">Modern Dashboard</a></li>
+                            <a class="has-arrow" href="index.html#" aria-expanded="false">
+                            <i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a> @*<span class="label label-rounded label-success">5</span>*@
+                            @*<ul aria-expanded="false" class="collapse">
+                                <li><a href="index.html">Dashboard</a></li>
                                 <li><a href="index2.html">Awesome Dashboard</a></li>
                                 <li><a href="index3.html">Classy Dashboard</a></li>
                                 <li><a href="index4.html">Analytical Dashboard</a></li>
                                 <li><a href="index5.html">Minimal Dashboard</a></li>
-                            </ul>
+                            </ul>*@
                         </li>
                         <li>
-                            <a class="has-arrow " href="index.html#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Apps</span></a>
-                            <ul aria-expanded="false" class="collapse">
+                            <a class="has-arrow " href="/Project/Management" aria-expanded="false">
+                                <i class="mdi mdi-folder-multiple-outline" ></i><span class="hide-menu">Quản lý dự án</span></a>
+                            @*<ul aria-expanded="false" class="collapse">
                                 <li><a href="app-calendar.html">Calendar</a></li>
                                 <li><a href="app-chat.html">Chat app</a></li>
                                 <li><a href="app-ticket.html">Support Ticket</a></li>
                                 <li><a href="app-contact.html">Contact / Employee</a></li>
                                 <li><a href="app-contact2.html">Contact Grid</a></li>
                                 <li><a href="app-contact-detail.html">Contact Detail</a></li>
-                            </ul>
+                            </ul>*@
                         </li>
                         <li>
-                            <a class="has-arrow " href="index.html#" aria-expanded="false"><i class="mdi mdi-email"></i><span class="hide-menu">Inbox</span></a>
-                            <ul aria-expanded="false" class="collapse">
+                            <a class="has-arrow " href="Issue/List" aria-expanded="false">
+                                <i class="mdi mdi-android-debug-bridge"></i><span class="hide-menu">Quản lý lỗi</span>
+                            </a>
+                            @*<ul aria-expanded="false" class="collapse">
                                 <li><a href="app-email.html">Mailbox</a></li>
                                 <li><a href="app-email-detail.html">Mailbox Detail</a></li>
                                 <li><a href="app-compose.html">Compose Mail</a></li>
-                            </ul>
+                            </ul>*@
                         </li>
-                        <li>
+                        @*<li>
                             <a class="has-arrow" href="index.html#" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Ui Elements</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="ui-cards.html">Cards</a></li>
@@ -590,7 +596,7 @@
                                 </li>
                                 <li><a href="index.html#">item 1.4</a></li>
                             </ul>
-                        </li>
+                        </li>*@
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
