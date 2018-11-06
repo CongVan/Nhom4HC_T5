@@ -17,6 +17,23 @@
 }
 
 var ruleForm = function () {
+    jQuery.validator.addMethod("checkName", function (value, element) {
+        var check = false;
+        $.ajax({
+            async: false,
+            url: "/Project/Management/CheckProjectName",
+            type: "get",
+            data: {
+                name: value,
+            },
+            success: function (data) {
+                check = data.TenDuAn;
+            }
+        });
+        return check;
+    }, "Tên dự án đã tồn tại");
+
+
     $('form').each(function () {
         $(this).validate({
             errorClass: "text-danger font-weight-bold",
@@ -25,6 +42,7 @@ var ruleForm = function () {
                 TenDuAn: {
                     required: true,
                     minlength: 10,
+                    checkName: true,
                 },
                 TruongDuAnID: {
                     required: true,
@@ -158,7 +176,7 @@ var btnAddProject_Click = function () {
     clearForm($('#frmAddProject'));
 }
 var btnProjectDetail_Click = function (id) {
-    
+
     callAjax({ url: "/Project/Management/GetUserList", showLoading: false })
 	.then(function (data) {
 	    var lstUser = JSON.parse(data.result);
@@ -194,7 +212,7 @@ var btnProjectDetail_Click = function (id) {
             $('#frmUpdateProject select[name="TruongDuAnID"]').val(project[0].TruongDuAnID);
             $('#viewVersions').attr('href', '/Project/Version/Index/' + id);
             $('#viewMembers').attr('href', '/Project/Member/?id=' + id);
-            
+
             $('.nav-tabs a[href="#projectDetail"]').tab('show');
         }).catch(function (x, t, e) {
             console.log(e);
@@ -202,15 +220,15 @@ var btnProjectDetail_Click = function (id) {
 
     })
     .catch(function (x, t, e) {
-	    console.log(e);
-	});
-
-    
+        console.log(e);
+    });
 
 
 
 
-    
+
+
+
 }
 var clearForm = function (frm) {
     frm.find('input[type=text], textarea, select').removeClass('text-danger').val('');
