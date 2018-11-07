@@ -25,6 +25,7 @@ var ruleForm = function () {
             type: "get",
             data: {
                 name: value,
+                id: $('#frmUpdateProject input[name="DuAnID"]').val(),
             },
             success: function (data) {
                 check = data.TenDuAn;
@@ -35,7 +36,9 @@ var ruleForm = function () {
 
 
     $('form').each(function () {
+        
         $(this).validate({
+
             errorClass: "text-danger font-weight-bold",
             errorElement: "span",
             rules: {

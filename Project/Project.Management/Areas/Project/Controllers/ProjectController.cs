@@ -180,7 +180,7 @@ namespace Project.Management.Areas.Project.Controllers
                 return Json(new { result = -1, msg = ex.Message }, JsonRequestBehavior.AllowGet);
             }
         }
-        public JsonResult CheckProjectName(string name)
+        public JsonResult CheckProjectName(string name,int id = 0)
         {
             try
             {
@@ -191,6 +191,7 @@ namespace Project.Management.Areas.Project.Controllers
                         cnn.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@TenDuAn", name);
+                        cmd.Parameters.AddWithValue("@DuAnID", id);
                         cmd.Parameters.AddWithValue("@TruongDuAnID", Session["UserID"].ToString());
                         var adpt = new SqlDataAdapter(cmd);
                         var tb = new DataTable();
