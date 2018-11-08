@@ -17,9 +17,15 @@ namespace Issue.Create.Areas.Issue.Controllers
         public ActionResult Create()
         {
             if (Request.QueryString["VanDeID"] != null)
+            {
                 ViewBag.VanDeID = Request.QueryString["VanDeID"];
+                ViewBag.TextButton = "Cập nhật";
+            }
             else
+            {
                 ViewBag.VanDeID = 0;
+                ViewBag.TextButton = "Thêm mới";
+            }
 
             return View();
         }

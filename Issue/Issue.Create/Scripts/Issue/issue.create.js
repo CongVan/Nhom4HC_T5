@@ -4,21 +4,29 @@
         autoclose: true,
         todayHighlight: true
     });
-    LayDanhSachDuAn();
-    LayDanhSachLoaiVanDe();
-    LayDanhSachTaiKhoan();
-
-    var VanDeID = $('#txtVanDeID').val();
-    if (VanDeID > 0) {
-        LayThongTinVanDe(VanDeID);
-    }
+    
+    //setTimeout(function () {
+        LayDanhSachDuAn();
+    //    setTimeout(function () {
+    //        LayDanhSachLoaiVanDe();
+    //        setTimeout(function () {
+    //            LayDanhSachTaiKhoan();
+    //            setTimeout(function () {
+    //                var VanDeID = $('#txtVanDeID').val();
+    //                if (VanDeID > 0) {
+    //                    LayThongTinVanDe(VanDeID);
+    //                }
+    //            }, 1000);
+    //        }, 1000);
+    //    }, 1000);
+    //}, 1000); 
 });
 
 function LayThongTinVanDe(VanDeID) {
     $.ajax({
         url: "/Issue/Create/LayThongTinVanDe",
         type: "POST",
-        data: { "VanDeID": VanDeID}
+        data: { "VanDeID": VanDeID }
     }).done(function (data) {
         if (data.DuAnID > 0) {
             $('#DuAnID').val(data.DuAnID);
@@ -44,12 +52,11 @@ function LayDanhSachDuAn() {
         type: "POST",
         //data: { "VanDeID": VanDeID }
     }).done(function (data) {
-
         var source = document.getElementById('DuAnID-template').innerHTML;
         var template = Handlebars.compile(source);
         var html = template(data);        
         $('#lstDuAn').html(html);
-
+        LayDanhSachLoaiVanDe();
     }).fail(function (xhr, status, err) {
         console.log(status);
         console.log(err);
@@ -67,7 +74,7 @@ function LayDanhSachLoaiVanDe() {
         var template = Handlebars.compile(source);
         var html = template(data);
         $('#lstLoaiVanDe').html(html);
-
+        LayDanhSachTaiKhoan();
     }).fail(function (xhr, status, err) {
         console.log(status);
         console.log(err);
@@ -86,7 +93,10 @@ function LayDanhSachTaiKhoan() {
         var template = Handlebars.compile(source);
         var html = template(data);
         $('#lstNguoiThucHien').html(html);
-
+        var VanDeID = $('#txtVanDeID').val();
+        if (VanDeID > 0) {
+            LayThongTinVanDe(VanDeID);
+        }
     }).fail(function (xhr, status, err) {
         console.log(status);
         console.log(err);
@@ -152,7 +162,7 @@ $("#btnCapNhat").on('click', function () {
 });
 
 function VerifyInfo(TenVanDe, NguoiThucHien, NgayBatDau, NgayKetThuc, SoGioDuKien) {
-    if (TenVanDe.length < 0) {
+    if (TenVanDe.length <= 0) {
         swal("Thông báo", "Vui lòng nhập Tên vấn đề", "error");
         $('#txtTenVanDe').focus();
         return false;
@@ -167,6 +177,17 @@ function VerifyInfo(TenVanDe, NguoiThucHien, NgayBatDau, NgayKetThuc, SoGioDuKie
         $('#txtSoGioDuKien').focus();
         return false;
     }
+    if (NgayBatDau.length <= 0) {
+        swal("Thông báo", "Vui lòng nhập Ngày bắt đầu", "error");
+        $('#txtNgayBatDau').focus();
+        return false;
+    }
+    if (NgayKetThuc.length <= 0) {
+        swal("Thông báo", "Vui lòng nhập Ngày kết thúc", "error");
+        $('#txtNgayBatDau').focus();
+        return false;
+    }
+
     var startDate = parseDateJAVA(NgayBatDau).getTime();
     var endDate = parseDateJAVA(NgayKetThuc).getTime();
 
