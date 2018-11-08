@@ -16,9 +16,16 @@ namespace Project.Management.Areas.Project.Controllers
 
         //
         // GET: /Project/Project/
-         
+
         public ActionResult Project()
         {
+            if (Session["UserID"] == null)
+            {
+                return Redirect("/User/Login");
+            }
+            ViewBag.UserID = Session["UserID"].ToString();
+
+
             return View();
         }
 
@@ -36,7 +43,7 @@ namespace Project.Management.Areas.Project.Controllers
                         cmd.Parameters.AddWithValue("@TenDuAn", Request["TenDuAn"]);
                         cmd.Parameters.AddWithValue("@MoTa", Request["MoTa"]);
                         cmd.Parameters.AddWithValue("@TruongDuAnID", Request["TruongDuAnID"]);
-                        cmd.Parameters.AddWithValue("@NguoiTaoID", Request["NguoiTaoID"]??"0");
+                        cmd.Parameters.AddWithValue("@NguoiTaoID", Request["NguoiTaoID"] ?? "0");
                         int c = cmd.ExecuteNonQuery();
                         return Json(new { result = c, msg = "OK" }, JsonRequestBehavior.AllowGet);
                     }
@@ -111,6 +118,7 @@ namespace Project.Management.Areas.Project.Controllers
                     {
                         cnn.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@TruongDuAnID", Session["UserID"].ToString());
                         var adpt = new SqlDataAdapter(cmd);
                         var tb = new DataTable();
                         adpt.Fill(tb);
@@ -134,6 +142,7 @@ namespace Project.Management.Areas.Project.Controllers
                     {
                         cnn.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@TruongDuAnID", Session["UserID"].ToString());
                         var adpt = new SqlDataAdapter(cmd);
                         var tb = new DataTable();
                         adpt.Fill(tb);
@@ -163,6 +172,33 @@ namespace Project.Management.Areas.Project.Controllers
                         adpt.Fill(tb);
                         string t = JsonConvert.SerializeObject(tb);
                         return Json(new { result = t, msg = "OK" }, JsonRequestBehavior.AllowGet);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { result = -1, msg = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+        public JsonResult CheckProjectName(string name,int id = 0)
+        {
+            try
+            {
+                using (var cnn = new SqlConnection(cnnString))
+                {
+                    using (var cmd = new SqlCommand("sp_KiemTraTrungTenDuAn", cnn))
+                    {
+                        cnn.Open();
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@TenDuAn", name);
+                        cmd.Parameters.AddWithValue("@DuAnID", id);
+                        cmd.Parameters.AddWithValue("@TruongDuAnID", Session["UserID"].ToString());
+                        var adpt = new SqlDataAdapter(cmd);
+                        var tb = new DataTable();
+                        adpt.Fill(tb);
+                        bool check = tb.Rows.Count > 0 ? false : true;
+                        return Json(new { TenDuAn = check }, JsonRequestBehavior.AllowGet);
+
                     }
                 }
             }
