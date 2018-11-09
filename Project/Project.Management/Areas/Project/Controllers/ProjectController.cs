@@ -19,11 +19,11 @@ namespace Project.Management.Areas.Project.Controllers
 
         public ActionResult Project()
         {
-            if (Session["UserID"] == null)
+            if (System.Web.HttpContext.Current.Session["UserID"] == null)
             {
                 return Redirect("/User/Login");
             }
-            ViewBag.UserID = Session["UserID"].ToString();
+            ViewBag.UserID = System.Web.HttpContext.Current.Session["UserID"].ToString();
 
 
             return View();
@@ -118,7 +118,7 @@ namespace Project.Management.Areas.Project.Controllers
                     {
                         cnn.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@TruongDuAnID", Session["UserID"].ToString());
+                        cmd.Parameters.AddWithValue("@TruongDuAnID", (int)System.Web.HttpContext.Current.Session["UserID"]);
                         var adpt = new SqlDataAdapter(cmd);
                         var tb = new DataTable();
                         adpt.Fill(tb);
@@ -142,7 +142,7 @@ namespace Project.Management.Areas.Project.Controllers
                     {
                         cnn.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@TruongDuAnID", Session["UserID"].ToString());
+                        cmd.Parameters.AddWithValue("@TruongDuAnID", (int)System.Web.HttpContext.Current.Session["UserID"]);
                         var adpt = new SqlDataAdapter(cmd);
                         var tb = new DataTable();
                         adpt.Fill(tb);
@@ -192,7 +192,7 @@ namespace Project.Management.Areas.Project.Controllers
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@TenDuAn", name);
                         cmd.Parameters.AddWithValue("@DuAnID", id);
-                        cmd.Parameters.AddWithValue("@TruongDuAnID", Session["UserID"].ToString());
+                        cmd.Parameters.AddWithValue("@TruongDuAnID", (int)System.Web.HttpContext.Current.Session["UserID"]);
                         var adpt = new SqlDataAdapter(cmd);
                         var tb = new DataTable();
                         adpt.Fill(tb);
