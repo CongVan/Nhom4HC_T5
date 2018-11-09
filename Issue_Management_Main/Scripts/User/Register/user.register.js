@@ -182,7 +182,7 @@ var CheckExistsEmail = function () {
 var GetValueToObject = function () {
     var obj = {};
     obj.HoTen = $('#hoTen').val() || "";
-    obj.NgaySinh = new moment($('#ngaySinh').val(),dateFormat).format("MM/DD/YYYY");
+    obj.NgaySinh = new moment($('#ngaySinh').val(),dateFormat.toLocaleUpperCase()).format("MM/DD/YYYY");
     obj.TenDangNhap = $("#tenDangNhap").val() || "";
     obj.MatKhau = $("#matKhau").val() || "";
     obj.GioiTinh = $('input[name=GioiTinh]:checked').val();
