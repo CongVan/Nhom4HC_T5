@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<License>
+  <Data>
+    <LicensedTo>Chau</LicensedTo>
+    <LicenseType>Developer OEM Subscription</LicenseType>
+    <LicenseNote>Limited to 1 developer.</LicenseNote>
+    <OrderID>091008103830</OrderID>
+    <OEM>This is a redistributable license</OEM>
+    <Products>
+      <Product>Aspose.Cells</Product>
+    </Products>
+    <EditionType>Enterprise</EditionType>
+    <SerialNumber>ea2596cc-7fbf-47bd-ac29-da592766adc3</SerialNumber>
+    <SubscriptionExpiry>20101008</SubscriptionExpiry>
+    <LicenseVersion>2.2</LicenseVersion>
+  </Data>
+  <Signature>JpS84XtNozBIfUo8/yiT+o7otRUX5z39I2B1PcQFbtGx2/26bv2D+71pdi9UxcWy0aUwgHb1OePv/nQdcXInuPgLSMaDvh6n5jL+RCNfALv+0Ws/p8sjxNPIlO3IGD7Rp5UUE8axOLgTLiWBYUsuJxpYwnlYWOpzskszvF1RNwQ=</Signature>
+</License>

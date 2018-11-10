@@ -1,0 +1,5 @@
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Report\Report.Issue\bin\Report.Issue.dll
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Report\Report.Issue\bin\Report.Issue.pdb
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Report\Report.Issue\obj\Debug\Report.Issue.csprojResolveAssemblyReference.cache
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Report\Report.Issue\obj\Debug\Report.Issue.dll
+E:\Giang\Liên Thông\HocKy3\T5\Nhom4HC_T5\Report\Report.Issue\obj\Debug\Report.Issue.pdb
