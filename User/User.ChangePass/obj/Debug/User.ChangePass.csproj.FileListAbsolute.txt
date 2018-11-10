@@ -3,3 +3,7 @@ C:\Users\Admin\Documents\GitHub\Nhom4HC_T5\User\User.ChangePass\bin\User.ChangeP
 C:\Users\Admin\Documents\GitHub\Nhom4HC_T5\User\User.ChangePass\obj\Debug\User.ChangePass.dll
 C:\Users\Admin\Documents\GitHub\Nhom4HC_T5\User\User.ChangePass\obj\Debug\User.ChangePass.pdb
 C:\Users\Admin\Documents\GitHub\Nhom4HC_T5\User\User.ChangePass\obj\Debug\User.ChangePass.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\New folder\Nhom4HC_T5\User\User.ChangePass\bin\User.ChangePass.dll
+C:\Users\Admin\Desktop\New folder\Nhom4HC_T5\User\User.ChangePass\bin\User.ChangePass.pdb
+C:\Users\Admin\Desktop\New folder\Nhom4HC_T5\User\User.ChangePass\obj\Debug\User.ChangePass.dll
+C:\Users\Admin\Desktop\New folder\Nhom4HC_T5\User\User.ChangePass\obj\Debug\User.ChangePass.pdb
