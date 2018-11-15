@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+
     $('#changepassform').validate({
         rules: {
             TenDangNhap: {
@@ -50,32 +51,33 @@
             success: function (response) {
                 if (parseInt(response) > 0) {
                     swal("Thông báo", "Đổi mật khẩu thành công", "success");
-                    ResetForm();
+                    function Redirect() {
+                        window.location.href = "/";
+                    }
+                    setTimeout(500);
+                    Redirect();
                 }
                 else {
                     swal("Thông báo", "Đổi mật khẩu thất bại", "error");
+                    ResetForm();
                 }
             },
-            error: function (xhr, textStatus, errorThrown) {
-                console.log('JAVASCRIPT ERROR !!!');
-            }
         });
     });
-});
 
-var GetValueToObject = function () {
-    var obj = {};
-    obj.TenDangNhap = $('#TenDangNhap').val() || "";
-    obj.MatKhau = $("#MatKhau").val() || "";
-    obj.MatKhauMoi = $("#MatKhauMoi").val() || "";
-    return obj;
-}
+    var GetValueToObject = function () {
+        var obj = {};
+        obj.TenDangNhap = $('#TenDangNhap').val() || "";
+        obj.MatKhau = $("#MatKhau").val() || "";
+        obj.MatKhauMoi = $("#MatKhauMoi").val() || "";
+        return obj;
+    }
 
-var ResetForm = function () {
-    $("#TenDangNhap").val('');
-    $("#MatKhau").val('');
-    $('#MatKhauMoi').val('');
-    $('#NhapLaiMatKhauMoi').val('');
-}
+    var ResetForm = function () {
+        $("#TenDangNhap").val('');
+        $("#MatKhau").val('');
+        $('#MatKhauMoi').val('');
+        $('#NhapLaiMatKhauMoi').val('');
+    }
 
 
