@@ -10,13 +10,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/Report/Views/Report/Index.cshtml">
-      <publishTime>11/10/2018 13:46:17</publishTime>
+      <publishTime>11/15/2018 19:47:57</publishTime>
     </File>
     <File Include="bin/Report.Issue.dll">
       <publishTime>11/10/2018 13:32:31</publishTime>
     </File>
     <File Include="Scripts/Report/report.issue.js">
-      <publishTime>11/10/2018 13:44:37</publishTime>
+      <publishTime>11/15/2018 19:51:30</publishTime>
     </File>
   </ItemGroup>
 </Project>
