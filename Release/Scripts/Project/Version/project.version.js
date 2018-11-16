@@ -1,6 +1,5 @@
 ﻿var dateFormat = 'dd/MM/yyyy';
 var table = null;
-
 $(document).ready(function () {
     $('.date-deadline').datepicker({
         format: 'dd/mm/yyyy',
@@ -19,30 +18,7 @@ $(document).on('click', '#btnThem', function () {
 })
 
 $(document).on('click', '#btnLuu', function () {
-    var model = getModel();
-    var formdata = new FormData();
-    formdata.append("model", JSON.stringify(model));
-    $.ajax({
-        url: '/Project/Version/InsUpdVersion',
-        type: 'POST',
-        data: formdata,
-        contentType: false,
-        processData: false,
-        success: function (response) {
-            if (parseInt(response) > 0) {
-                swal("Thông báo", "Tạo phiên bản thành công", "success");
-            }
-            else {
-                swal("Thông báo", "Tạo phiên bản khoản thất bại", "error");
-            }
-            resetModal();
-            BindDataVersion();
-            $('#modalVersion').modal('hide');
-        },
-        error: function (xhr, textStatus, errorThrown) {
-            console.log('JAVASCRIPT ERROR !!!');
-        }
-    });
+    checkValidName(saveVersion);
 });
 
 $(document).on('click', '#btnThoat', function () {
@@ -56,6 +32,65 @@ $(document).on('click', '.edit-version', function () {
     var model = getObjectFromArray(data, id);
     setModal(model);
 });
+
+$(document).on('change', '#tenPhienBan', function () {
+    checkValidName();
+});
+var checkValidName = function (callback) {
+    var id = $('#idVersion').val();
+    var duanid = $('#idProject').val();
+    var tenphienban = $('#tenPhienBan').val();
+    $('#txtDangerName').text('');
+    if (tenphienban == "") {
+        $('#txtDangerName').text('Tên phiên bản không để trống');
+        return;
+    }
+    $.ajax({
+        url: '/Project/Version/CheckValidName',
+        type: 'GET',
+        data: { Id: id, duAnID: duanid, tenPhienBan: tenphienban },
+        dataType: 'json',
+        success: function (response) {
+            if (response == 1) {
+                $('#txtDangerName').text('Tên phiên bản đã tồn tại');
+            }
+            else {
+                if (callback) {
+                    callback();
+                }
+            }
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log('JAVASCRIPT ERROR !!!');
+        }
+    });
+}
+var saveVersion = function () {
+    var model = getModel();
+    var formdata = new FormData();
+    formdata.append("model", JSON.stringify(model));
+    $.ajax({
+        url: '/Project/Version/InsUpdVersion',
+        type: 'POST',
+        data: formdata,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            if (parseInt(response) > 0) {
+                swal("Thông báo", "thao tác thành công", "success");
+            }
+            else {
+                swal("Thông báo", "thao tác thất bại", "error");
+            }
+            resetModal();
+            BindDataVersion();
+            $('#modalVersion').modal('hide');
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log('JAVASCRIPT ERROR !!!');
+        }
+    });
+}
 
 var getObjectFromArray = function (array,key) {
     for (var i in array) {
@@ -118,6 +153,7 @@ var resetModal = function () {
     $('#ngayBatDau').datepicker('setDate', new Date());
     $('#ngayKetThuc').datepicker('setDate', new Date());
     $('#trangThai').prop('checked', true);
+    $('#txtDangerName').text('');
 }
 
 var getModel = function () {
