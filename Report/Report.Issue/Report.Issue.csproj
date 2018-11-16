@@ -131,6 +131,7 @@
     <Compile Include="Areas\Report\Models\ReplaceWithHtmlEvaluator.cs" />
     <Compile Include="Areas\Report\Models\ReportIssueModel.cs" />
     <Compile Include="Areas\Report\Models\ReportIssueViewModel.cs" />
+    <Compile Include="Areas\Report\Models\ReportMember.cs" />
     <Compile Include="Areas\Report\ReportAreaRegistration.cs" />
     <Compile Include="Areas\Report\Service\ReportService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,4 +1,5 @@
 ﻿var table = null;
+var tableMember = null;
 $(document).ready(function () {
     getAllProject();
 });
@@ -117,7 +118,11 @@ var LoadDataTable = function (data) {
     table = $('#myTable').DataTable({
         "data": data,
         "columns": [
-            { "data": "HoTen", "width": "40%" },
+            {
+                "render": function (data, type, full, row) {
+                    return '<a href="#" onclick="GetReportMember('+ full.TaiKhoanID +')">' + full.HoTen + '</a>';
+                }, "width": "40%"
+            },
             {
                 "render": function (data, type, full, row) {
                     return '<span class="label label-primary">' + full.ChuaXacNhan + '</span>';
@@ -143,6 +148,70 @@ var LoadDataTable = function (data) {
         "ordering": false,
         "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
     });
+}
+
+var LoadDataTableMember = function (data) {
+    if (tableMember != null) {
+        tableMember.clear();
+        tableMember.destroy();
+    }
+    tableMember = $('#myTableMember').DataTable({
+        "data": data,
+        "columns": [
+            {
+                "data": "HoTen",
+            },
+            {
+                "data": "TenVanDe",
+            },
+            {
+                "data": "TenLoaiVanDe",
+            },
+            {
+                "render": function (data, type, full, row) {
+                    return getTextByTrangThai(full.TrangThai);
+            }
+            },
+        ],
+        "searching": false,
+        "ordering": false,
+        "bLengthChange": false,
+    });
+}
+
+var GetReportMember = function (taikhoanId) {
+    var duanid = $('#sel-duan').val();
+    $.ajax({
+        url: '/Report/Issue/VanDeThanhVien',
+        type: 'GET',
+        data: {duanId : duanid , taikhoanID : taikhoanId},
+        dataType: 'json',
+        success: function (response) {
+            $('#modalMember').modal('show');
+            LoadDataTableMember(response);
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log('JAVASCRIPT ERROR !!!');
+        }
+    });
+}
+
+var getTextByTrangThai = function (trangthai) {
+    switch (trangthai)
+    {
+        case 1:
+            return '<span class="label label-primary">Chưa xác nhận</span>';
+            break;
+        case 2:
+            return '<span class="label label-info">xác nhận</span>';
+            break;
+        case 3:
+            return '<span class="label label-warning">Đang xử lý</span>';
+            break;
+        case 4:
+            return '<span class="label label-success">Đã xử lý</span>';
+            break;
+    }
 }
 
 var getAllProject = function () {

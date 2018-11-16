@@ -95,5 +95,36 @@ namespace Report.Issue.Areas.Report.Service
                 }
             }
         }
+
+        public List<ReportMember> GetReportMember(int duanID, int taikhoanID)
+        {
+            using (var conn = new SqlConnection(strConn))
+            {
+                using (SqlDataAdapter da = new SqlDataAdapter())
+                {
+                    da.SelectCommand = new SqlCommand("sp_BaoCao_ThanhVien", conn);
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.Add("@DuAnID", SqlDbType.Int).Value = duanID;
+                    da.SelectCommand.Parameters.Add("@TaiKhoanID", SqlDbType.Int).Value = taikhoanID;
+                    DataSet ds = new DataSet();
+                    da.Fill(ds, "report_member");
+                    DataTable dt = ds.Tables["report_member"];
+
+                    var data = new List<ReportMember>();
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        data.Add(new ReportMember()
+                        {
+                            VanDeID = Convert.ToInt32(row["VanDeID"].ToString()),
+                            HoTen = row["HoTen"].ToString(),
+                            TenVanDe = row["TenVanDe"].ToString(),
+                            TenLoaiVanDe = row["TenLoaiVanDe"].ToString(),
+                            TrangThai = Convert.ToInt32(row["TrangThai"].ToString())
+                        });
+                    }
+                    return data;
+                }
+            }
+        }
     }
 }

@@ -53,6 +53,13 @@ namespace Report.Issue.Areas.Report.Controllers
             return Json(false, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult VanDeThanhVien(string duanId, string taikhoanID)
+        {
+            var service = new ReportService();
+            var result = service.GetReportMember(Convert.ToInt32(duanId),Convert.ToInt32(taikhoanID));
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult ExcelVanDe(string duanId, string tenDuAn)
         {
             if (!string.IsNullOrEmpty(duanId))

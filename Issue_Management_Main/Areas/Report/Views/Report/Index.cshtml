@@ -64,6 +64,11 @@
             margin-top: 5px;
         }
     }
+    @@media (min-width: 1024px) {
+        .modal-dialog {
+            min-width: 800px !important;
+        }
+    }
 </style>
 }
 <div class="content">
@@ -107,7 +112,42 @@
         <tbody></tbody>
     </table>
 </div>
-
+<div class="modal fade" id="modalMember" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thống kê thành viên</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body w-100">
+                <table id="myTableMember" class="table w-100">
+                    <thead>
+                        <tr>
+                            <td>
+                                Tên thành viên
+                            </td>
+                            <td>
+                                Tên vấn đề
+                            </td>
+                            <td>
+                                Loại vấn đề 
+                            </td>
+                            <td>
+                                Trạng thái
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnThoat" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+            </div>
+        </div>
+    </div>
+</div>
 @section js{
     <script src="~/assets/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="~/assets/plugins/datatables/dataTables.bootstrap.js"></script>
