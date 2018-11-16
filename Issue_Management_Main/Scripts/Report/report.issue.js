@@ -40,7 +40,7 @@ $(document).on('click', '.sknadExExcel', function () {
                 var url = window.location.protocol + '//' + document.location.hostname + stringbort + '//' + data;
                 setTimeout(function () {
                     window.open(url);
-                }, 500);
+                }, 300);
             }
         },
         error: function (xhr, textStatus, errorThrown) {
@@ -70,7 +70,7 @@ $(document).on('click', '.sknadExPDF', function () {
                 var url = window.location.protocol + '//' + document.location.hostname + stringbort + '//' + data;
                 setTimeout(function () {
                     window.open(url);
-                }, 500);
+                }, 300);
             }
         },
         error: function (xhr, textStatus, errorThrown) {
@@ -100,7 +100,7 @@ $(document).on('click', '.sknadExWord', function () {
                 var url = window.location.protocol + '//' + document.location.hostname + stringbort + '//' + data;
                 setTimeout(function () {
                     window.open(url);
-                }, 500);
+                }, 300);
             }
         },
         error: function (xhr, textStatus, errorThrown) {
