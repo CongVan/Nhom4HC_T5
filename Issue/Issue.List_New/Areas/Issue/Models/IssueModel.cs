@@ -36,14 +36,15 @@ namespace Issue.List.Areas.Issue.Models
             this.DuAnID = 0;
         }
 
-        public static List<IssueModel> GetList(string TenDangNhap)
+        public static List<IssueModel> GetList(string TenDangNhap, string TenVanDe)
         {
             List<IssueModel> lst = new List<IssueModel>();
             try
             {
 
                 SqlParameter[] pars = {
-                    new SqlParameter ("@TenDangNhap", TenDangNhap)
+                    new SqlParameter ("@TenDangNhap", TenDangNhap),
+                    new SqlParameter ("@TenVanDe", TenVanDe)
                 };
 
                 DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.ConnectionString(), CommandType.StoredProcedure, "sp_VanDe_LayDanhSach", pars);

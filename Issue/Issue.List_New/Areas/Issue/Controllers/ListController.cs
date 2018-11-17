@@ -15,10 +15,10 @@ namespace Issue.List_New.Areas.Issue.Controllers
             return View();
         }
 
-        public JsonResult GetList()
+        public JsonResult GetList(string TenVanDe)
         {
             string TenDangNhap = Session["UserName"].ToString();
-            List<IssueModel> lst = IssueModel.GetList(TenDangNhap);
+            List<IssueModel> lst = IssueModel.GetList(TenDangNhap, TenVanDe);
 
             return Json(lst, JsonRequestBehavior.AllowGet);
         }

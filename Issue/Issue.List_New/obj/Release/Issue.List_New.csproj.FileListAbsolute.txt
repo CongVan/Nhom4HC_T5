@@ -3,3 +3,9 @@ E:\HocTap\HC(2018-2019)\HK_III\QL_QTPM_T5\Issue_Management_Main_New\Nhom4HC_T5\I
 E:\HocTap\HC(2018-2019)\HK_III\QL_QTPM_T5\Issue_Management_Main_New\Nhom4HC_T5\Issue\Issue.List_New\obj\Release\Issue.List_New.csprojResolveAssemblyReference.cache
 E:\HocTap\HC(2018-2019)\HK_III\QL_QTPM_T5\Issue_Management_Main_New\Nhom4HC_T5\Issue\Issue.List_New\obj\Release\Issue.List_New.dll
 E:\HocTap\HC(2018-2019)\HK_III\QL_QTPM_T5\Issue_Management_Main_New\Nhom4HC_T5\Issue\Issue.List_New\obj\Release\Issue.List_New.pdb
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Nhom4HC_T5\Issue\Issue.List_New\bin\Issue.List_New.dll
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Nhom4HC_T5\Issue\Issue.List_New\bin\Issue.List_New.pdb
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Nhom4HC_T5\Issue\Issue.List_New\obj\Release\Issue.List_New.csprojAssemblyReference.cache
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Nhom4HC_T5\Issue\Issue.List_New\obj\Release\Issue.List_New.csproj.CoreCompileInputs.cache
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Nhom4HC_T5\Issue\Issue.List_New\obj\Release\Issue.List_New.dll
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Nhom4HC_T5\Issue\Issue.List_New\obj\Release\Issue.List_New.pdb

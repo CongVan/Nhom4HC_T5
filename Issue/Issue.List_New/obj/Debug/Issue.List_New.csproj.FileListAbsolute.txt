@@ -1,0 +1,6 @@
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Nhom4HC_T5\Issue\Issue.List_New\bin\Issue.List_New.dll
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Nhom4HC_T5\Issue\Issue.List_New\bin\Issue.List_New.pdb
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Nhom4HC_T5\Issue\Issue.List_New\obj\Debug\Issue.List_New.csprojAssemblyReference.cache
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Nhom4HC_T5\Issue\Issue.List_New\obj\Debug\Issue.List_New.csproj.CoreCompileInputs.cache
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Nhom4HC_T5\Issue\Issue.List_New\obj\Debug\Issue.List_New.dll
+E:\Hoc tap\HCDH\QuanLyQuiTrinhPhanMem\Nhom4HC_T5\Issue\Issue.List_New\obj\Debug\Issue.List_New.pdb

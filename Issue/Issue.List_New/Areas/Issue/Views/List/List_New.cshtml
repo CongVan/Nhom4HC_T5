@@ -13,6 +13,10 @@
     <h4 class="modal-title text-info">DANH SÁCH VẤN ĐỀ</h4>
 </div>
 <form>
+    Tên vấn đề: <input type="text" class="form-control" id="sTenVanDe" style="width: 200px;margin: 10px;" />
+    <button type="button" class="btn btn-primary" id="btnSearch" style="width: 80px;">
+        Tìm
+    </button>
     <div class="table-responsive">
         <table class="table table-bordered table-hover table-striped display nowrap" id="tableProject" data-toggle="datatables">
             <thead>
@@ -20,14 +24,14 @@
                     <th>#</th>
                     <th>Tên vấn đề</th>
                     <th>Tên dự án</th>
-                    <th>Mô tả</th>
+                    @*<th>Mô tả</th>*@
                     <th>Trạng thái</th>
                     <th>Người thực hiện</th>
                     <th>Ngày bắt đầu</th>
                     <th>Ngày kết thúc</th>
                     <th>Số giờ dự kiến</th>
                     <th>Số giờ thực tế</th>
-                    <th>&nbsp;</th>
+                    <th style="width: 130px;">&nbsp;</th>
                 </tr>
             <tbody id="ListIssue"></tbody>
             </thead>
@@ -38,12 +42,13 @@
         <tr>
             <td>{{STT}}</td>
             <td>
-                <a target="_blank" href="/Issue/Create/?VanDeID={{VanDeID}}">
-                    {{TenVanDe}}
-                </a>
+                @*<a target="_blank" href="/Issue/Create/?VanDeID={{VanDeID}}">
+                        {{TenVanDe}}
+                    </a>*@
+                {{TenVanDe}}
             </td>
             <td>{{TenDuAn}}</td>
-            <td>{{MoTa}}</td>
+            @*<td>{{MoTa}}</td>*@
             <td>{{TrangThaiDesc}}</td>
             <td>{{TenDangNhap}}</td>
             <td>{{NgayBatDau}}</td>
@@ -51,6 +56,9 @@
             <td>{{SoGioDuKien}}</td>
             <td>{{SoGioThucTe}}</td>
             <td class="text-right">
+                <a class="btn btn-xs btn-info del" target="" href="/Issue/Create/?VanDeID={{VanDeID}}">
+                    Cập nhật
+                </a>
                 <a class="btn btn-xs btn-danger del" href="javascript:;" role="button" data-id="{{VanDeID}}">
                     Xóa
                 </a>

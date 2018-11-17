@@ -32,3 +32,21 @@ $('#ListIssue').on('click', '.del', function () {
         });
     }
 })
+
+$('#btnSearch').on('click', function () {
+    var TenVenDe = $("#sTenVanDe").val();
+    if (TenVenDe.length > 0) {
+        $.ajax({
+            type: 'POST',
+            url: '/Issue/List_New/GetList?TenVanDe=' + TenVenDe,           
+            timeout: 10000
+        }).done(function (data) {
+            // console.log(data);
+            var source = document.getElementById('Issue-template').innerHTML;
+            var template = Handlebars.compile(source);
+            var html = template(data);
+            // console.log(html);
+            $('#ListIssue').html(html);
+        });
+    }
+});
