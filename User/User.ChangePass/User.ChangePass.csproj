@@ -119,14 +119,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\PublishProfiles\123.pubxml" />
-    <None Include="Properties\PublishProfiles\User.ChangePass.pubxml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Scripts\User\ChangePass\user.changepass.js" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\User\Views\ChangePass\ChangePass.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\OK.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

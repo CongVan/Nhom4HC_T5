@@ -1,11 +1,6 @@
 ﻿$(document).ready(function () {
-
     $('#changepassform').validate({
         rules: {
-            TenDangNhap: {
-                required: true,
-                minlength: 5,
-            },
             MatKhau: {
                 required: true,
                 minlength: 6,
@@ -19,10 +14,6 @@
             }
         },
         messages: {
-            TenDangNhap: {
-                required: "Điền thông tin vào trường này",
-                minlength: "Tài khoản ít nhật 5 ký tự",
-            },
             MatKhau: {
                 required: "Điền thông tin vào trường này",
                 minlength: "Mật khẩu ít nhất 6 ký tự",
@@ -36,6 +27,7 @@
             }
         }
     });
+
     $('#btn-changePass').on('click', function () {
         var idForm = '#changepassform';
         var objmodel = {};
@@ -51,11 +43,9 @@
             success: function (response) {
                 if (parseInt(response) > 0) {
                     swal("Thông báo", "Đổi mật khẩu thành công", "success");
-                    function Redirect() {
+                    setTimeout(function () {
                         window.location.href = "/";
-                    }
-                    setTimeout(500);
-                    Redirect();
+                    }, 800);
                 }
                 else {
                     swal("Thông báo", "Đổi mật khẩu thất bại", "error");
@@ -64,20 +54,17 @@
             },
         });
     });
+});
 
-    var GetValueToObject = function () {
-        var obj = {};
-        obj.TenDangNhap = $('#TenDangNhap').val() || "";
-        obj.MatKhau = $("#MatKhau").val() || "";
-        obj.MatKhauMoi = $("#MatKhauMoi").val() || "";
-        return obj;
-    }
+var GetValueToObject = function () {
+    var obj = {};
+    obj.MatKhau = $("#MatKhau").val() || "";
+    obj.MatKhauMoi = $("#MatKhauMoi").val() || "";
+    return obj;
+}
 
-    var ResetForm = function () {
-        $("#TenDangNhap").val('');
-        $("#MatKhau").val('');
-        $('#MatKhauMoi').val('');
-        $('#NhapLaiMatKhauMoi').val('');
-    }
-
-
+var ResetForm = function () {
+    $("#MatKhau").val('');
+    $('#MatKhauMoi').val('');
+    $('#NhapLaiMatKhauMoi').val('');
+}

@@ -26,6 +26,7 @@ namespace User.ChangePass.Areas.User.Controllers
         {
             var model =  Request.Form["usermodel"];
             var userModel = JsonConvert.DeserializeObject<UserModel>(model);
+            userModel.ID = Convert.ToInt32(Session["UserID"].ToString());
             userModel.MatKhau = CreateMD5(userModel.MatKhau);
             userModel.MatKhauMoi = CreateMD5(userModel.MatKhauMoi);
             var service = new UserServices();

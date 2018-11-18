@@ -1,9 +1,8 @@
 ﻿@inherits System.Web.Mvc.WebViewPage
 @{
-    Layout = null;
+    Layout = null;//"~/Views/Layout.cshtml";
+    //ViewsBag.Title = "Trang đăng ký";
 }
-
-
 <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="~/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
 <!-- Custom CSS -->
@@ -15,42 +14,46 @@
     .error {
         color: red;
     }
+
+    body {
+        background-image: url(../assets/images/background/login-register.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
 </style>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-block">
-                    <form class="form-horizontal form-material" id="changepassform">
-                        <h3 class="box-title m-b-20">Đổi mật khẩu</h3>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <input class="form-control" type="text" id="TenDangNhap" name="TenDangNhap" placeholder="Tên Đăng Nhập" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <input class="form-control" type="password" id="MatKhau" name="MatKhau" placeholder="Mật Khẩu">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <input class="form-control" type="password" id="MatKhauMoi" name="MatKhauMoi" placeholder="Mật Khẩu Mới">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <input class="form-control" type="password" id="NhapLaiMatKhauMoi" name="NhapLaiMatKhauMoi" placeholder="Nhập Lại Mật Khẩu Mới">
-                            </div>
-                        </div>
-                        <div class="form-group text-center m-t-20">
-                            <div class="row justify-content-center">
-                                <div class="col-xs-6">
-                                    <input type="button" id="btn-changePass" class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" value="Xác nhận">
+<div class="py-3">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-block">
+                        <form class="form-horizontal form-material" id="changepassform">
+                            <h3 class="box-title m-b-20">Đổi Mật Khẩu</h3>
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="password" id="MatKhau" name="MatKhau" placeholder="Mật Khẩu">
                                 </div>
                             </div>
-                        </div>
-                    </form>
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="password" id="MatKhauMoi" name="MatKhauMoi" placeholder="Mật Khẩu Mới">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="password" id="NhapLaiMatKhauMoi" name="NhapLaiMatKhauMoi" placeholder="Nhập Lại Mật Khẩu Mới">
+                                </div>
+                            </div>
+                            <div class="form-group text-center m-t-20">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-6 text">
+                                        <input type="button" id="btn-changePass" class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" value="Xác nhận">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -64,5 +67,7 @@
 <script src="~/assets/plugins/wizard/jquery.validate.min.js"></script>
 <script src="~/assets/plugins/moment/min/moment.min.js"></script>
 <script src="~/assets/plugins/sweetalert/sweetalert.min.js"></script>
-
+<!-- Default JavaScript -->
+<!-- Custom JavaScript -->
 <script src="~/Scripts/User/ChangePass/user.changepass.js"></script>
+<!-- Custom JavaScript -->

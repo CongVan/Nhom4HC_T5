@@ -21,7 +21,7 @@ namespace User.ChangePass.Areas.User.Services
                 {
                     conn.Open();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@TenDangNhap", SqlDbType.NVarChar).Value = model.TenDangNhap;
+                    cmd.Parameters.Add("@ID", SqlDbType.Int).Value = model.ID;
                     cmd.Parameters.Add("@MatKhau", SqlDbType.NVarChar).Value = model.MatKhau;
                     cmd.Parameters.Add("@MatKhauMoi", SqlDbType.NVarChar).Value = model.MatKhauMoi;
                     var result = cmd.ExecuteNonQuery();
