@@ -1,0 +1,158 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@{
+    Layout = "~/Views/Layout.cshtml";
+}
+@section css{
+    <link href="~/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    <link href="~/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
+    <style>
+    .ButtonExport {
+        height: 24px;
+        width: 22px;
+        box-sizing: border-box;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        float: right;
+        margin-right: 10px;
+        margin-top: 5px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #fff;
+    }
+        .ButtonExport:hover {
+            -webkit-animation-name: HoverButtonExport;
+            -webkit-animation-duration: 500ms;
+            animation-name: HoverButtonExport;
+            animation-duration: 500ms;
+        }
+        .ButtonExport.sknadExExcel {
+            background-image: url(/assets/images/iConExcel.png);
+            background-size: 22px 24px;
+        }
+        .ButtonExport.sknadExPDF {
+            background-image: url(/assets/images/iConPDF.png);
+            background-size: 22px 24px;
+        }
+        .ButtonExport.sknadExWord {
+            height: 24px;
+            width: 21px;
+            background-image: url(/assets/images/iConWord.png);
+            background-size: 21px 24px;
+        }
+    @@-webkit-keyframes HoverButtonExport {
+        0% {
+            margin-top: 5px;
+        }
+        50% {
+            margin-top: 0px;
+        }
+        100% {
+            margin-top: 5px;
+        }
+    }
+    @@keyframes HoverButtonExport {
+        0% {
+            margin-top: 5px;
+        }
+
+        50% {
+            margin-top: 0px;
+        }
+
+        100% {
+            margin-top: 5px;
+        }
+    }
+    @@media (min-width: 1024px) {
+        .modal-dialog {
+            min-width: 800px !important;
+        }
+    }
+</style>
+}
+<div class="content">
+    <div class="row py-3">
+        <h4>Thống kê vấn đề</h4>
+    </div>
+    <div class="row py-3">
+        <div class="col-md-4">
+            <select id="sel-duan" class="form-control">
+                <option value="">Chọn dự án</option>
+            </select>
+        </div>
+        <div class="col-md-8">
+            <div class="form-group">
+                <span class="ButtonExport sknadExExcel" title="Import Excel">&nbsp;</span>
+                <span class="ButtonExport sknadExPDF" title="Import PDF">&nbsp;</span>
+                <span class="ButtonExport sknadExWord" title="Import Word">&nbsp;</span>
+            </div>
+        </div>
+    </div>
+    <table id="myTable" class="table">
+        <thead>
+            <tr>
+                <td>
+                    Tên thành viên
+                </td>
+                <td>
+                    Chưa xác nhận
+                </td>
+                <td>
+                    Đã xác nhận
+                </td>
+                <td>
+                    Đang xử lý
+                </td>
+                <td>
+                    Đã xử lý xong
+                </td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+<div class="modal fade" id="modalMember" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thống kê thành viên</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body w-100">
+                <table id="myTableMember" class="table w-100">
+                    <thead>
+                        <tr>
+                            <td>
+                                Tên thành viên
+                            </td>
+                            <td>
+                                Tên vấn đề
+                            </td>
+                            <td>
+                                Loại vấn đề 
+                            </td>
+                            <td>
+                                Trạng thái
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnThoat" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section js{
+    <script src="~/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/assets/plugins/datatables/dataTables.bootstrap.js"></script>
+    <script src="~/assets/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="~/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="~/assets/plugins/moment/min/moment.min.js"></script>
+    <script src="~/Scripts/Report/report.issue.js"></script>
+}
