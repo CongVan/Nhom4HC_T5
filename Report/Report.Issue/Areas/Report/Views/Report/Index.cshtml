@@ -40,6 +40,22 @@
             background-image: url(/assets/images/iConWord.png);
             background-size: 21px 24px;
         }
+        .ButtonExport.sknadMemberExExcel {
+            background-image: url(/assets/images/iConExcel.png);
+            background-size: 22px 24px;
+        }
+
+        .ButtonExport.sknadMemberExPDF {
+            background-image: url(/assets/images/iConPDF.png);
+            background-size: 22px 24px;
+        }
+
+        .ButtonExport.sknadMemberExWord {
+            height: 24px;
+            width: 21px;
+            background-image: url(/assets/images/iConWord.png);
+            background-size: 21px 24px;
+        }
     @@-webkit-keyframes HoverButtonExport {
         0% {
             margin-top: 5px;
@@ -122,6 +138,22 @@
                 </button>
             </div>
             <div class="modal-body w-100">
+                <input id="memberDuAnID" type="hidden" value=""/>
+                <input id="memberTaiKhoanID" type="hidden" value=""/>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <span class="ButtonExport sknadMemberExExcel" title="Import Excel">&nbsp;</span>
+                            <span class="ButtonExport sknadMemberExPDF" title="Import PDF">&nbsp;</span>
+                            <span class="ButtonExport sknadMemberExWord" title="Import Word">&nbsp;</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Danh sách vấn đề</h3>
+                    </div>
+                </div>
                 <table id="myTableMember" class="table w-100">
                     <thead>
                         <tr>

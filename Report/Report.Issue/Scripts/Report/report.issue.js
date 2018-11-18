@@ -39,9 +39,7 @@ $(document).on('click', '.sknadExExcel', function () {
                 if (bort === "" || bort === null || bort === undefined)
                     stringbort = "";
                 var url = window.location.protocol + '//' + document.location.hostname + stringbort + '//' + data;
-                setTimeout(function () {
-                    window.open(url);
-                }, 300);
+                window.open(url);
             }
         },
         error: function (xhr, textStatus, errorThrown) {
@@ -69,9 +67,7 @@ $(document).on('click', '.sknadExPDF', function () {
                 if (bort === "" || bort === null || bort === undefined)
                     stringbort = "";
                 var url = window.location.protocol + '//' + document.location.hostname + stringbort + '//' + data;
-                setTimeout(function () {
-                    window.open(url);
-                }, 300);
+                window.open(url);
             }
         },
         error: function (xhr, textStatus, errorThrown) {
@@ -99,9 +95,94 @@ $(document).on('click', '.sknadExWord', function () {
                 if (bort === "" || bort === null || bort === undefined)
                     stringbort = "";
                 var url = window.location.protocol + '//' + document.location.hostname + stringbort + '//' + data;
-                setTimeout(function () {
-                    window.open(url);
-                }, 300);
+                window.open(url);
+            }
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log('JAVASCRIPT ERROR !!!');
+        }
+    });
+});
+
+$(document).on('click', '.sknadMemberExExcel', function () {
+    var duanId = $('#memberDuAnID').val();
+    var taikhoanId = $('#memberTaiKhoanID').val();
+    var tenduan = $('#sel-duan option:selected').text();
+    $.ajax({
+        url: '/Report/Issue/ExcelThanhVienVanDe',
+        type: 'GET',
+        data: { duanId: duanId,taiKhoanID: taikhoanId, tenDuAn: tenduan  },
+        dataType: 'json',
+        success: function (data) {
+            if (data === "1") {
+                swal("Thông báo", "Không có dữ liệu!", "error");
+            } else if (data === "2") {
+                swal("Thông báo", "Không có biểu mẫu!", "error");
+            } else {
+                var bort = window.location.port;
+                var stringbort = ':' + bort;
+                if (bort === "" || bort === null || bort === undefined)
+                    stringbort = "";
+                var url = window.location.protocol + '//' + document.location.hostname + stringbort + '//' + data;
+                window.open(url);
+            }
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log('JAVASCRIPT ERROR !!!');
+        }
+    });
+});
+
+$(document).on('click', '.sknadMemberExPDF', function () {
+    var duanId = $('#memberDuAnID').val();
+    var taikhoanId = $('#memberTaiKhoanID').val();
+    var tenduan = $('#sel-duan option:selected').text();
+    $.ajax({
+        url: '/Report/Issue/WordPdfThanhVienVanDe',
+        type: 'GET',
+        data: { duanId: duanId, taiKhoanID: taikhoanId, tenDuAn: tenduan, format: "pdf" },
+        dataType: 'json',
+        success: function (data) {
+            if (data === "1") {
+                swal("Thông báo", "Không có dữ liệu!", "error");
+            } else if (data === "2") {
+                swal("Thông báo", "Không có biểu mẫu!", "error");
+            } else {
+                var bort = window.location.port;
+                var stringbort = ':' + bort;
+                if (bort === "" || bort === null || bort === undefined)
+                    stringbort = "";
+                var url = window.location.protocol + '//' + document.location.hostname + stringbort + '//' + data;
+                window.open(url);
+            }
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log('JAVASCRIPT ERROR !!!');
+        }
+    });
+});
+
+$(document).on('click', '.sknadMemberExWord', function () {
+    var duanId = $('#memberDuAnID').val();
+    var taikhoanId = $('#memberTaiKhoanID').val();
+    var tenduan = $('#sel-duan option:selected').text();
+    $.ajax({
+        url: '/Report/Issue/WordPdfThanhVienVanDe',
+        type: 'GET',
+        data: { duanId: duanId,taiKhoanID : taikhoanId , tenDuAn: tenduan, format: "doc" },
+        dataType: 'json',
+        success: function (data) {
+            if (data === "1") {
+                swal("Thông báo", "Không có dữ liệu!", "error");
+            } else if (data === "2") {
+                swal("Thông báo", "Không có biểu mẫu!", "error");
+            } else {
+                var bort = window.location.port;
+                var stringbort = ':' + bort;
+                if (bort === "" || bort === null || bort === undefined)
+                    stringbort = "";
+                var url = window.location.protocol + '//' + document.location.hostname + stringbort + '//' + data;
+                window.open(url);
             }
         },
         error: function (xhr, textStatus, errorThrown) {
@@ -187,6 +268,8 @@ var GetReportMember = function (taikhoanId) {
         data: {duanId : duanid , taikhoanID : taikhoanId},
         dataType: 'json',
         success: function (response) {
+            $('#memberDuAnID').val(duanid);
+            $('#memberTaiKhoanID').val(taikhoanId);
             $('#modalMember').modal('show');
             LoadDataTableMember(response);
         },

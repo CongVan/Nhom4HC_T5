@@ -71,9 +71,20 @@ namespace Report.Issue.Areas.Report.Controllers
             return Json("1", JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult ExcelThanhVienVanDe(string duanId, string taiKhoanID, string tenDuAn)
+        {
+            if (!string.IsNullOrEmpty(duanId))
+            {
+                var service = new ReportService();
+                var result = service.GetReportMember(Convert.ToInt32(duanId), Convert.ToInt32(taiKhoanID));
+                return Json(ExportExcelMember(result, tenDuAn), JsonRequestBehavior.AllowGet);
+            }
+            return Json("1", JsonRequestBehavior.AllowGet);
+        }
+
         public string ExportExcel(List<ReportIssueViewModel> data, string tenDuAn)
         {
-            if (data == null) return "1";
+            if (data == null || data.Count == 0) return "1";
             var pathExport = Server.MapPath("~/Templates/Report/BaoCaoIssue.xls");
             var wbExport = new Workbook(pathExport);
             if (pathExport == null) return "2";
@@ -110,7 +121,52 @@ namespace Report.Issue.Areas.Report.Controllers
             bool isExists = Directory.Exists(path);
             if (!isExists)
                 Directory.CreateDirectory(path);
-            var namefile = "BaoCaoIssue_" + DateTime.Now.ToString("yyyyMMddhhmmssfff") + ".xls";
+            var namefile = "BaoCaoThongKe_" + DateTime.Now.ToString("yyyyMMddhhmmssfff") + ".xls";
+            var pathsave = Path.GetDirectoryName(path) + @"\" + namefile;
+            wbExport.Save(pathsave);
+            url = url + namefile;
+            return url;
+        }
+
+        public string ExportExcelMember(List<ReportMember> data, string tenDuAn)
+        {
+            if (data == null || data.Count == 0) return "1";
+            var pathExport = Server.MapPath("~/Templates/Report/BaoCaoIssueMember.xls");
+            var wbExport = new Workbook(pathExport);
+            if (pathExport == null) return "2";
+            int rowIndex = 4;
+            for (int i = 0; i < data.Count; i++)
+            {
+                wbExport.Worksheets[0].Cells.InsertRow(rowIndex);
+                var item = data[i];
+                wbExport.Worksheets[0].Cells["B" + (rowIndex + 1)].Value = item.HoTen;
+                wbExport.Worksheets[0].Cells["C" + (rowIndex + 1)].Value = item.TenVanDe;
+                wbExport.Worksheets[0].Cells["D" + (rowIndex + 1)].Value = item.TenLoaiVanDe;
+                wbExport.Worksheets[0].Cells["E" + (rowIndex + 1)].Value = convertTrangThai(item.TrangThai);
+            }
+
+            var opts = new FindOptions
+            {
+                LookAtType = LookAtType.Contains,
+                LookInType = LookInType.Values
+            };
+            var tda = wbExport.Worksheets[0].Cells.Find("<tenduan>", null, opts);
+            if (tda != null)
+            {
+                tda.Value = tenDuAn;
+            }
+            var nbc = wbExport.Worksheets[0].Cells.Find("<ngaybaocao>", null, opts);
+            if (nbc != null)
+            {
+                nbc.Value = DateTime.Now.ToString("dd/MM/yyyy");
+            }
+            var url = "Templates/Report/BaoCaoIssue" + "/" + DateTime.Now.Year + "/" +
+                         DateTime.Now.Month + "/";
+            var path = Path.Combine(Server.MapPath('~' + "/" + url));
+            bool isExists = Directory.Exists(path);
+            if (!isExists)
+                Directory.CreateDirectory(path);
+            var namefile = "BaoCaoThongKe_" + DateTime.Now.ToString("yyyyMMddhhmmssfff") + ".xls";
             var pathsave = Path.GetDirectoryName(path) + @"\" + namefile;
             wbExport.Save(pathsave);
             url = url + namefile;
@@ -124,6 +180,8 @@ namespace Report.Issue.Areas.Report.Controllers
                 var service = new ReportService();
                 var result = service.GetAllIssue(Convert.ToInt32(duanId));
                 var pathExport = Server.MapPath("~/Templates/Report/BaoCaoIssue.doc");
+                if (result == null || result.Count == 0) return Json("1", JsonRequestBehavior.AllowGet); ;
+                if (pathExport == null) return Json("2", JsonRequestBehavior.AllowGet);
                 var ds = new DataSet("office");
                 var tb = new DataTable("TableIntro");
                 tb.Columns.Add("TenDuAn");
@@ -134,6 +192,42 @@ namespace Report.Issue.Areas.Report.Controllers
                 tb.Rows.Add(row);
                 ds.Tables.Add(tb);
                 ds.Tables.Add(result.ToDataTable());
+                return Json(WordPdfThongKeBaoCao(pathExport, ds, format), JsonRequestBehavior.AllowGet);
+            }
+            return Json("1", JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult WordPdfThanhVienVanDe(string duanId, string taiKhoanID, string tenDuAn, string format)
+        {
+            if (!string.IsNullOrEmpty(duanId))
+            {
+                var service = new ReportService();
+                var result = service.GetReportMember(Convert.ToInt32(duanId), Convert.ToInt32(taiKhoanID));
+                var pathExport = Server.MapPath("~/Templates/Report/BaoCaoIssueMember.doc");
+                if (result == null || result.Count == 0) return Json("1", JsonRequestBehavior.AllowGet); ;
+                if (pathExport == null) return Json("2", JsonRequestBehavior.AllowGet);
+                var ds = new DataSet("office");
+                var tb = new DataTable("TableIntro");
+                tb.Columns.Add("TenDuAn");
+                tb.Columns.Add("NgayBaoCao");
+                var row = tb.NewRow();
+                row["TenDuAn"] = tenDuAn;
+                row["NgayBaoCao"] = DateTime.Now.ToString("dd/MM/yyyy");
+                tb.Rows.Add(row);
+                ds.Tables.Add(tb);
+
+                var lst = result.Select(x => new
+                {
+                    HoTen = x.HoTen,
+                    TenVanDe = x.TenVanDe,
+                    TenLoaiVanDe = x.TenLoaiVanDe,
+                    TrangThai = convertTrangThai(x.TrangThai)
+                });
+                if (lst.Count() > 0)
+                {
+                    var tbres = lst.ToList().ToDataTable();
+                    ds.Tables.Add(tbres);
+                }
                 return Json(WordPdfThongKeBaoCao(pathExport, ds, format), JsonRequestBehavior.AllowGet);
             }
             return Json("1", JsonRequestBehavior.AllowGet);
@@ -210,7 +304,7 @@ namespace Report.Issue.Areas.Report.Controllers
                 bool isExists = Directory.Exists(path);
                 if (!isExists)
                     Directory.CreateDirectory(path);
-                var namefile = "BieuMauThongKe_" + DateTime.Now.ToString("yyyyMMddhhmmssfff") + "." + format.ToLower();
+                var namefile = "BaoCaoThongKe_" + DateTime.Now.ToString("yyyyMMddhhmmssfff") + "." + format.ToLower();
                 var pathsave = Path.GetDirectoryName(path) + @"\" + namefile;
                 doc.Save(pathsave, saveOptions);
                 return url + namefile;
@@ -221,5 +315,25 @@ namespace Report.Issue.Areas.Report.Controllers
             }
         }
 
+        public string convertTrangThai(int trangthai)
+        {
+            var result = string.Empty;
+            switch (trangthai)
+            {
+                case 1:
+                    result = "Chưa xác nhận";
+                    break;
+                case 2:
+                    result = "Xác nhận";
+                    break;
+                case 3:
+                    result = "Đang xử lý";
+                    break;
+                case 4:
+                    result = "Đã xử lý";
+                    break;
+            }
+            return result;
+        }
     }
 }
