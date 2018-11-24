@@ -10,7 +10,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/Report/Views/Report/Index.cshtml">
-      <publishTime>11/17/2018 21:41:53</publishTime>
+      <publishTime>11/24/2018 16:12:21</publishTime>
     </File>
     <File Include="bin/Report.Issue.dll">
       <publishTime>11/18/2018 22:41:53</publishTime>
