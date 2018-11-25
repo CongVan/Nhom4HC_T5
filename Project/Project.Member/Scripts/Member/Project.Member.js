@@ -24,14 +24,18 @@ var ruleForm = function () {
             rules: {
                 ThanhVienID: {
                     required: true,
-
+                },
+                RollID: {
+                    required: true,
                 }
             },
             messages: {
                 ThanhVienID: {
-                    required: "Vui lòng chọn trưởng dự án!",
-
+                    required: "Vui lòng chọn thành viên!",
                 },
+                RollID: {
+                    required: "Vui lòng chọn chức vụ!",
+                }
             },
             submitHandler: function (form) {
                 if ($(form).attr('id') == "frmAddProject") {
@@ -124,20 +128,29 @@ var eventElemenet = {
 var name = '';
 var id;
 $(document).ready(function () {
-    ruleForm();
-    eventElemenet.init();
     var url = new URL(window.location.href);
     id = url.searchParams.get("id");
+    callAjax({ url: "/Project/Member/LeaderOfProject/" + id, showLoading: false })
+    .then(function (data) {
+        var check = JSON.parse(data.result);
+        if (check.length == 0)
+        {
+            document.getElementById('btnAddProject').style.visibility = 'hidden';
+        }
+    }).catch(function (x, t, e) {
+        console.log(e);
+    });
+    ruleForm();
+    eventElemenet.init();
     getMemberOfProject(id);
     var getData;
     $.ajax({
         type: 'GET',
         url: "/Project/Member/GetNameOfProject/" + id,
         dataType: 'json',
-        success: function (response) {
-            
+        success: function (response) {          
             getData = response.result
-            for (var i = 13; i < getData.length-3; i++) {
+              for (var i = 13; i < getData.length - 3; i++) {
                 name = name + getData[i];
             }
         }
@@ -151,15 +164,23 @@ var btnAddProject_Click = function () {
 	    var lstUser = JSON.parse(data.result);
 	    var html = "<option value=''>Chọn thành viên vào dự án</option>";
 	    $.each(lstUser, function (i, item) {
-	        html += "<option value='" + item.TaiKhoanID + "'>" + item.HoTen + "</option>";
+	        html += "<option value='" + item.TaiKhoanID + "'>" + item.TenDangNhap + "</option>";
 	    });
 	    $('#frmAddProject select[name="ThanhVienID"').html(html);
-
 	}).catch(function (x, t, e) {
 	    console.log(e);
 	});
-
-
+    callAjax({ url: "/Project/Member/RollOfProject", showLoading: false })
+    .then(function (data) {
+        var lstRoll = JSON.parse(data.result);
+        var html = "<option value=''>Chọn chọn chức vụ</option>";
+        $.each(lstRoll, function (i, item) {
+            html += "<option value='" + item.IDRoll + "'>" + item.NameRoll + "</option>";
+        });
+        $('#frmAddProject select[name="RollID"').html(html);
+    }).catch(function (x, t, e) {
+        console.log(e);
+    });
     clearForm($('#frmAddProject'));
 }
 
@@ -173,15 +194,13 @@ var getMemberOfProject = function () {
         ajax: {
             url: "/Project/Member/GetMemberOfProject/"+id,
             "dataSrc": function (data) {
-                // manipulate your data (json)
-                //console.log(JSON.parse(data.result));
-
-                // return the data that DataTables is to use to draw the table
-                return JSON.parse(data.result);
+            return JSON.parse(data.result);
             }
         },
         columns: [
-			{ "data": "TenThanhVien" },
+			{ "data": "TenDangNhap" },
+            { "data": "TenThanhVien" },
+            { "data": "ChucVu" },
             { "data": "NguoiThem" },
 			{
 			    "data": "NgayTao",
@@ -195,7 +214,7 @@ var getMemberOfProject = function () {
             	render: function (data, type, row) {
             	    return '<button class="btn btn-outline-info waves-effect waves-light btn-sm btnProjectDetail" type="button"  data-id=' + data + '><i class="fa fa-pencil "></i> Xoá</button>';
                 }
-            	}
+            }
         ]
     });
 

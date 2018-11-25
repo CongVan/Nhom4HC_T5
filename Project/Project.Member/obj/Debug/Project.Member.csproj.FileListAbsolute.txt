@@ -2,3 +2,4 @@ D:\monthu5\Nhom4HC_T5\Project\Project.Member\bin\Project.Member.dll
 D:\monthu5\Nhom4HC_T5\Project\Project.Member\bin\Project.Member.pdb
 D:\monthu5\Nhom4HC_T5\Project\Project.Member\obj\Debug\Project.Member.dll
 D:\monthu5\Nhom4HC_T5\Project\Project.Member\obj\Debug\Project.Member.pdb
+D:\monthu5\Nhom4HC_T5\Project\Project.Member\obj\Debug\Project.Member.csprojResolveAssemblyReference.cache

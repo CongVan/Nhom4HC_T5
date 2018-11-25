@@ -13,13 +13,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/21/2018 14:22:57</publishTime>
     </File>
     <File Include="Areas/Member/Views/Member/MemberOfProject.cshtml">
-      <publishTime>10/21/2018 19:41:05</publishTime>
+      <publishTime>11/25/2018 18:15:02</publishTime>
     </File>
     <File Include="bin/Project.Member.dll">
-      <publishTime>10/21/2018 19:53:55</publishTime>
+      <publishTime>11/25/2018 18:15:13</publishTime>
     </File>
     <File Include="Scripts/Member/Project.Member.js">
-      <publishTime>10/21/2018 19:58:12</publishTime>
+      <publishTime>11/25/2018 18:15:05</publishTime>
     </File>
   </ItemGroup>
 </Project>
