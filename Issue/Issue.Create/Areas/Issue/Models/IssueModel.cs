@@ -128,6 +128,11 @@ namespace Issue.Create.Areas.Issue.Models
                 ResultDesc.SqlDbType = SqlDbType.NVarChar;
                 ResultDesc.Size = 500;
 
+                SqlParameter ResultVanDeID = new SqlParameter();
+                ResultVanDeID.ParameterName = "@ResultVanDeID";
+                ResultVanDeID.Direction = ParameterDirection.Output;
+                ResultVanDeID.SqlDbType = SqlDbType.Int;
+
                 SqlParameter[] pars = {
                     new SqlParameter ("VanDeID", IM.VanDeID),
                     new SqlParameter ("DuAnID", IM.DuAnID),
@@ -143,14 +148,15 @@ namespace Issue.Create.Areas.Issue.Models
                     new SqlParameter ("SoGioThucTe", IM.SoGioThucTe),
                     new SqlParameter ("NguoiCapNhat", IM.NguoiCapNhat),
                     ResultID,
-                    ResultDesc
+                    ResultDesc,
+                    ResultVanDeID
                 };
 
                 SqlHelper.ExecuteNonQuery(SqlHelper.ConnectionString(), CommandType.StoredProcedure, "sp_VanDe_Update", pars);
 
                 res.ResultID = Int32.Parse(ResultID.Value.ToString());
                 res.ResultDesc = ResultDesc.Value.ToString();
-
+                res.ResultVanDeID = Int32.Parse(ResultVanDeID.Value.ToString());
             }
             catch (Exception ex)
             {
@@ -165,12 +171,31 @@ namespace Issue.Create.Areas.Issue.Models
             string[] mdy = str.Substring(0,10).Split('/');
             return mdy[1] + "/" + mdy[0] + "/" + mdy[2];
         }
-    }
+
+        public static DataTable LayThongTinChiTietVanDe(int VanDeID)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlParameter[] pars = {
+                    new SqlParameter ("VanDeID", VanDeID)
+                };
+
+                DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.ConnectionString(), CommandType.StoredProcedure, "sp_VanDe_ChiTiet", pars);
+                dt = ds.Tables.Count > 0 ? ds.Tables[0] : dt;
+            }
+            catch (Exception ex)
+            { }
+
+            return dt;
+        }
+    }    
 
     public class ResData
     {
         public int ResultID { get; set; }
         public string ResultDesc { get; set; }
+        public int ResultVanDeID { get; set; }
     }
 
     public class CBXModel
