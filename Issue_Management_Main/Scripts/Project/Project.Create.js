@@ -36,7 +36,7 @@ var ruleForm = function () {
 
 
     $('form').each(function () {
-        
+
         $(this).validate({
 
             errorClass: "text-danger font-weight-bold",
@@ -145,12 +145,18 @@ var eventElemenet = {
     init: function () {
         this.btnAddProject();
         this.btnProjectDetail();
+        this.btnDelProject();
     },
     btnAddProject: function () { $('#btnAddProject').on('click', function () { btnAddProject_Click(); }) },
     btnProjectDetail: function () {
         $('#tableProject').on('click', '.btnProjectDetail', function () {
             btnProjectDetail_Click($(this).data('id'));
-        })
+        });
+    },
+    btnDelProject: function () {
+        $('#tableProject').on('click', '.btnDelProject', function () {
+            btnDelProject_Click($(this).data('id'));
+        });
     }
 }
 
@@ -177,6 +183,64 @@ var btnAddProject_Click = function () {
 
 
     clearForm($('#frmAddProject'));
+}
+var btnDelProject_Click = function (id) {
+    //swal({
+    //    title: "Are you sure?",
+    //    text: "You will not be able to recover this imaginary file!",
+    //    type: "warning",
+    //    showCancelButton: true,
+    //    confirmButtonColor: "#DD6B55",
+    //    confirmButtonText: "Yes, delete it!",
+    //    cancelButtonText: "No, cancel plx!",
+    //    closeOnConfirm: false,
+    //    closeOnCancel: false
+    //}, function (isConfirm) {
+    //    if (isConfirm) {
+    //        swal("Deleted!", "Your imaginary file has been deleted.", "success");
+    //    } else {
+    //        swal("Cancelled", "Your imaginary file is safe :)", "error");
+    //    }
+    //});
+
+    swal({
+        title: "Bạn có chắc muốn xóa dự án này?",
+        type: "warning",
+        showCancelButton: true,
+        closeOnConfirm: false,
+        //closeOnCancel: false
+    },
+       function (isConfirm) {
+           if (isConfirm) {
+               callAjax({ url: "/Project/Management/Delete?id="+id, showLoading: true })
+	        .then(function (data) {
+	            if (data.result == 1) {
+	                //swal({
+	                //    title: "Thành công",
+	                //    type: "success", 
+	                //    showCancelButton: true,
+	                //});
+	                $('#tableProject').DataTable().ajax.reload().draw();
+	                swal("Thành công", '', 'success');
+	            } else {
+	                //swal({
+	                //    title: "Thất bại",
+	                //    type: "error",
+	                //    showCancelButton: true,
+                    //    //text:data.msg
+	                //});
+	                swal("Thất bại", data.msg, 'error');
+	            }
+	        })
+            .catch(function (x, t, e) {
+                swal("Thất bại", e, 'error');
+                //console.log(e);
+            });
+           }
+       }
+    );
+
+
 }
 var btnProjectDetail_Click = function (id) {
 
@@ -264,7 +328,8 @@ var getProjectList = function () {
 			{
 			    "data": "DuAnID",
 			    render: function (data, type, row) {
-			        return '<button class="btn btn-outline-info waves-effect waves-light btn-sm btnProjectDetail" type="button" data-id=' + data + '><i class="fa fa-pencil "></i> Chi tiết</button>';
+			        return '<button class="btn btn-outline-info waves-effect waves-light btn-sm btnProjectDetail" type="button" data-id=' + data + '><i class="fa fa-pencil "></i> Chi tiết</button>'
+			        + '<button class="ml-2 btn btn-danger waves-effect waves-light btn-sm btnDelProject" type="button" data-id=' + data + '><i class="fa fa-times "></i> Xóa</button>';
 			    }
 			}
         ]

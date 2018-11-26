@@ -207,5 +207,32 @@ namespace Project.Management.Areas.Project.Controllers
                 return Json(new { result = -1, msg = ex.Message }, JsonRequestBehavior.AllowGet);
             }
         }
+        public JsonResult Delete(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return Json(new { result = -1, msg = "Không tìm thấy Project" }, JsonRequestBehavior.AllowGet);
+            }
+            try
+            {
+                using (var cnn = new SqlConnection(cnnString))
+                {
+                    using (var cmd = new SqlCommand("sp_XoaDuAn", cnn))
+                    {
+                        cnn.Open();
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@DuAnID", id.Value);
+                        var check = cmd.ExecuteNonQuery();
+                        check = check >= 1 ? 1 : -1;
+                        return Json(new { result=check,msg="OK" }, JsonRequestBehavior.AllowGet);
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { result = -1, msg = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
     }
 }
