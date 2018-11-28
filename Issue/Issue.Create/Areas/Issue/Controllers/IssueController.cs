@@ -73,15 +73,15 @@ namespace Issue.Create.Areas.Issue.Controllers
 
             ResData res = IssueModel.CapNhatVanDe(IM);
 
-            if(res.ResultID == 1)
+            if(res.ResultID > 0)
             {
-                SendMail(res.ResultVanDeID);
+                SendMail(res.ResultVanDeID, res.ResultID);
             }
 
             return Json(res, JsonRequestBehavior.AllowGet);
         }
 
-        private void SendMail(int VanDeID)
+        private void SendMail(int VanDeID, int Type)
         {
             string result = "";
             try
@@ -117,7 +117,11 @@ namespace Issue.Create.Areas.Issue.Controllers
                     MailMessage mail = new MailMessage();
                     mail.From = new MailAddress("17hcbquanlyloi@gmail.com");
                     mail.To.Add(dic["Email"].ToString());
-                    mail.Subject = "["+ dic["TenDuAn"].ToString() + "] - " + dic["TenVanDe"].ToString();
+                    string Sub = "[" + dic["TenDuAn"].ToString() + "] - " + dic["TenVanDe"].ToString();
+                    if (Type == 2)
+                        Sub = "[Update] " + Sub;
+
+                    mail.Subject = Sub;
                     mail.IsBodyHtml = true;
                     mail.Body = "<p>Dear " + dic["Email"].ToString().Split('@')[0] + "</p>" +
                                 "<p>"+ dic["NguoiTao"].ToString() + " đã phân công cho bạn thực hiện vấn đề sau: <a href=\"http://bug.muteso.com/Issue/Create?VanDeID="+ dic["VanDeID"].ToString() + "\">Xem tại đây</a></p>" +
