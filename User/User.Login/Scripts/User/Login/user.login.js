@@ -31,12 +31,21 @@ $('#btn-login').on('click', function () {
         objmodel = GetValueToObject();
         var formdata = new FormData();
         formdata.append("usermodel", JSON.stringify(objmodel));
+
         $.ajax({
             url: '/User/Login/LoginUser',//User/Login/LoginUser @@
             type: 'POST',
             data: formdata,
             contentType: false,
             processData: false,
+            beforeSend: function () {
+                $('#btn-login').addClass("disabled");
+                $('#btn-login').html("Đang đăng nhập ....");
+            },
+            complete: function () {
+                $('#btn-login').removeClass("disabled");
+                $('#btn-login').html("Đăng nhập");
+            },
             success: function (response) {
                 if (parseInt(response) > 0) {
                     swal("Thông báo", "Đăng nhập thành công bấm \n Sẽ chuyển qua trang chủ trong 3s", "success");

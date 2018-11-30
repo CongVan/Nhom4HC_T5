@@ -39,6 +39,7 @@ namespace User.Login.Areas.User.Controllers
         [HttpPost]
         public JsonResult LoginUser()
         {
+
             var model = Request.Form["usermodel"];
             var userModel = JsonConvert.DeserializeObject<UserModel>(model);
             userModel.MatKhau = CreateMD5(userModel.MatKhau);
