@@ -41,9 +41,9 @@ var ruleForm = function () {
                 if ($(form).attr('id') == "frmAddProject") {
                     submitAddProject();
                 }
-                if ($(form).attr('id') == "frmAddProject") {
-                    submitDeleteProject();
-                }
+                //if ($(form).attr('id') == "frmAddProject") {
+                //    submitDeleteProject();
+                //}
                 return false;
             }
         });
